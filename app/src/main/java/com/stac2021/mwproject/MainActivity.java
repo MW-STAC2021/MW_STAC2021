@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,15 +14,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-    private HomeFragment fragmentHome = new HomeFragment();
-    private CalenderFragment fragmentCalender = new CalenderFragment();
-    private BookmarkFragment fragmentBookmark = new BookmarkFragment();
-    private CallFragment fragmentCall = new CallFragment();
-    private MypageFragment fragmentMypage = new MypageFragment();
-
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
 }
