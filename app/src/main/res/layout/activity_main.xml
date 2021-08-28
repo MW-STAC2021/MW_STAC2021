@@ -25,6 +25,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:itemIconTint="@drawable/menu_selector_color"
         app:itemTextColor="@drawable/menu_selector_color"
+        app:itemIconSize="22dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 
