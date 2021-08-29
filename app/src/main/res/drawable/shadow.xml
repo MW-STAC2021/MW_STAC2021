@@ -5,19 +5,19 @@
     <item>
         <shape>
             <padding android:bottom="2dp"/>
-            <solid android:color="#33DADADA" />
+            <solid android:color="#1ADADADA" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:bottom="1dp"/>
-            <solid android:color="#66DADADA" />
+            <solid android:color="#4DDADADA" />
         </shape>
     </item>
     <item>
         <shape>
             <padding android:bottom="1dp" />
-            <solid android:color="#99DADADA" />
+            <solid android:color="#80DADADA" />
         </shape>
     </item>
     <item>
