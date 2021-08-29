@@ -14,25 +14,20 @@ import com.stac2021.mwproject.R;
 
 import java.util.ArrayList;
 
-public class CallReportListViewAdapter extends BaseAdapter {
-
-    private TextView reportText;
-    private TextView reportNum;
-    private ImageButton reportCall;
+public class CallLawfirmListViewAdapter extends BaseAdapter {
 
     private TextView lawfirmText;
     private TextView lawfirmNum;
     private ImageButton lawfirmCall;
 
-    private ArrayList<CallReportListViewItem> reportListViewItemList = new ArrayList<CallReportListViewItem>();
-    //private ArrayList<CallListViewItem> lawfirmListViewItemList = new ArrayList<CallListViewItem>();
+    private ArrayList<CallLawfirmListViewItem> lawfirmListViewItemList = new ArrayList<CallLawfirmListViewItem>();
 
-    public CallReportListViewAdapter() {    }
+    public CallLawfirmListViewAdapter() {    }
 
     //Adapter에 사용되는 데이터 수 리턴
     @Override
     public int getCount() {
-        return reportListViewItemList.size();
+        return lawfirmListViewItemList.size();
     }
 
     @Override
@@ -44,17 +39,17 @@ public class CallReportListViewAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.fragment_call_report_item, viewGroup, false);
         }
 
-        reportText = (TextView) view.findViewById(R.id.reportText);
-        reportNum = (TextView) view.findViewById(R.id.reportNum);
-        reportCall = (ImageButton) view.findViewById(R.id.reportCall);
+        lawfirmText = (TextView) view.findViewById(R.id.lawfirmText);
+        lawfirmNum = (TextView) view.findViewById(R.id.lawfirmNum);
+        lawfirmCall = (ImageButton) view.findViewById(R.id.lawfirmCall);
 
 
-        final CallReportListViewItem listViewItem = reportListViewItemList.get(i);
+        final CallLawfirmListViewItem listViewItem = lawfirmListViewItemList.get(i);
 
-        reportText.setText(listViewItem.getText());
-        reportNum.setText(listViewItem.getNum());
+        lawfirmText.setText(listViewItem.getText());
+        lawfirmNum.setText(listViewItem.getNum());
 
-        reportCall.setOnClickListener(new View.OnClickListener(){
+        lawfirmCall.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -71,7 +66,7 @@ public class CallReportListViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return reportListViewItemList.get(i);
+        return lawfirmListViewItemList.get(i);
     }
 
     @Override
@@ -80,11 +75,11 @@ public class CallReportListViewAdapter extends BaseAdapter {
     }
 
     public void addItem(String text, String num){
-        CallReportListViewItem item = new CallReportListViewItem();
+        CallLawfirmListViewItem item = new CallLawfirmListViewItem();
 
         item.setText(text);
         item.setNum(num);
-        reportListViewItemList.add(item);
+        lawfirmListViewItemList.add(item);
 
     }
 

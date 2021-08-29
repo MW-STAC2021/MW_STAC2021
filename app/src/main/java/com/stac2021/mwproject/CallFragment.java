@@ -17,10 +17,13 @@ public class CallFragment extends Fragment {
     private ListView reportListView;
     private CallReportListViewAdapter reportAdpater;
 
+    //lawfirm list view
+    private ListView lawfirmListView;
+    private CallReportListViewAdapter lawfirmAdpater;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_call_report_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_call_list, container, false);
 
         //report list view
         reportAdpater = new CallReportListViewAdapter();
@@ -36,6 +39,19 @@ public class CallFragment extends Fragment {
         reportAdpater.addItem("청소년 상담 전화", "1388");
 
         reportAdpater.notifyDataSetChanged();
+
+        //report list view
+        lawfirmAdpater = new CallReportListViewAdapter();
+        lawfirmListView = (ListView) v.findViewById(R.id.lawfirmListView);
+        lawfirmListView.setAdapter(lawfirmAdpater);
+
+        lawfirmAdpater.addItem("법무법인 굳센 (24시)", "02-598-8284");
+        lawfirmAdpater.addItem("K2 법률사무소 (24시)", "02-594-4777");
+        lawfirmAdpater.addItem("지솔 법률사무소 (무료)", "02-591-5921");
+        lawfirmAdpater.addItem("법무법인 이룸 (무료)", "010-9603-3350");
+        lawfirmAdpater.addItem("법무법인 심평 (무료, 지···", "010-6624-1728");
+
+        lawfirmAdpater.notifyDataSetChanged();
 
         return v;
     }
