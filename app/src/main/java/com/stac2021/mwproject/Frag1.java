@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Frag1 extends Fragment {
+    ViewFlipper viewFlip;
     private ViewPager bannerPager;
     private BannerAdapter bannerAdapter;
 
@@ -26,6 +28,10 @@ public class Frag1 extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.frag1, container, false);
         // infalte : xml 코드를 java에서 보여주는 메소드
+        viewFlip = v.findViewById(R.id.viewFlip);
+        viewFlip.setFlipInterval(3000);
+        viewFlip.startFlipping();
+        /*
         bannerPager = v.findViewById(R.id.banner);
         bannerAdapter = new BannerAdapter(v.getContext());
         bannerPager.setAdapter(bannerAdapter);
@@ -47,6 +53,7 @@ public class Frag1 extends Fragment {
                 handler.post(Update);
             }
         }, DELAY_MS, PERIOD_MS);
+         */
         return v;
     }
 
