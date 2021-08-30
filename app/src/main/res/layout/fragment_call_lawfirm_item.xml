@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CallFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lawfirmText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="법무법인 굳센(24시)"
+            android:textSize="16sp"
+            android:textColor="#000" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/lawfirmNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02-598-8284"
+            android:textSize="16sp"
+            android:textColor="#AAAAAA"/>
+
+        <ImageButton
+            android:id="@+id/lawfirmCall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/call_img"/>
+    </LinearLayout>
+</LinearLayout>
