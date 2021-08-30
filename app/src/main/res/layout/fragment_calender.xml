@@ -3,12 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalenderFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".CalenderFragment"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+    <!-- TODO: Update blank fragment layout -->
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="#F29F80"
+        app:mcv_tileHeight="65dp"
+        app:mcv_selectionMode="none"
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnLinear"
+            android:gravity="right">
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_width="130dp"
+            android:layout_height="38dp"
+            android:id="@+id/writePeriod"
+            android:text="월경 기록하기"
+            style="?android:attr/borderlessButtonStyle"
+            android:textSize="12sp"
+            android:textColor="#794F40"
+            android:background="@drawable/button_writeperiod" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
