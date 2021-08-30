@@ -1,8 +1,12 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.mainTabLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.stac2021.mwproject.mainTabLayout.Frag1;
+import com.stac2021.mwproject.mainTabLayout.Frag2;
+import com.stac2021.mwproject.mainTabLayout.Frag3;
 
 import java.util.ArrayList;
 

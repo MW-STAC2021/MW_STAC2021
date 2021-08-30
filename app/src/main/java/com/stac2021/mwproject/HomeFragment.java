@@ -8,12 +8,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TabHost;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.Timer;
+import com.stac2021.mwproject.mainTabLayout.Frag1;
+import com.stac2021.mwproject.mainTabLayout.Frag2;
+import com.stac2021.mwproject.mainTabLayout.Frag3;
+import com.stac2021.mwproject.mainTabLayout.FragmentAdapter;
 
 public class HomeFragment extends Fragment {
 

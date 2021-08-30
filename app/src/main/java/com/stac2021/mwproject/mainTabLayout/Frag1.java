@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.mainTabLayout;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.stac2021.mwproject.BannerAdapter;
+import com.stac2021.mwproject.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
