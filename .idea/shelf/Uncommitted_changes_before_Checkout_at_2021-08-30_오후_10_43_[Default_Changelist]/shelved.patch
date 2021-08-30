@@ -1,0 +1,23 @@
+Index: app/src/main/res/values-v23/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.Light.NoActionBar\">\r\n        <!-- Customize your theme here. -->\r\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\r\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\r\n        <item name=\"colorAccent\">@color/colorAccent</item>\r\n        <item name=\"windowActionBarOverlay\">true</item>\r\n\r\n        <item name=\"android:windowLightStatusBar\">true</item>\r\n        <item name=\"windowActionBar\">false</item>\r\n        <item name=\"windowNoTitle\">true</item>\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-v23/styles.xml	(revision ba2dae4ced1ce123167757b771a75ee9a235cefd)
++++ app/src/main/res/values-v23/styles.xml	(date 1630331009507)
+@@ -3,10 +3,11 @@
+     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+         <!-- Customize your theme here. -->
+         <item name="colorPrimary">@color/colorPrimary</item>
+-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
++        <!-- 상태바 색 바꾸기-->
++        <item name="colorPrimaryDark">#FFFFFF</item>
+         <item name="colorAccent">@color/colorAccent</item>
++        <!-- 상태바 글자색 -->
+         <item name="windowActionBarOverlay">true</item>
+-
+         <item name="android:windowLightStatusBar">true</item>
+         <item name="windowActionBar">false</item>
+         <item name="windowNoTitle">true</item>

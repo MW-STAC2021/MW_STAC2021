@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.stac2021.mwproject.callListView.CallReportListViewAdapter;
@@ -37,7 +38,7 @@ public class CallFragment extends Fragment {
         reportAdpater.addItem("한국 사이버 성폭력 대···", "02-817-7959");
         reportAdpater.addItem("한국 여성의 전화 (여성폭력)", "02-2263-6465");
         reportAdpater.addItem("청소년 상담 전화", "1388");
-
+        reportListView.setAdapter(reportAdpater);
         reportAdpater.notifyDataSetChanged();
 
         //report list view
@@ -51,8 +52,26 @@ public class CallFragment extends Fragment {
         lawfirmAdpater.addItem("법무법인 이룸 (무료)", "010-9603-3350");
         lawfirmAdpater.addItem("법무법인 심평 (무료, 지···", "010-6624-1728");
 
+        lawfirmListView.setAdapter(lawfirmAdpater);
         lawfirmAdpater.notifyDataSetChanged();
+        setListViewHeightBasedOnChildren(reportListView);
+        setListViewHeightBasedOnChildren(lawfirmListView);
 
         return v;
     }
-}
+    public static void setListViewHeightBasedOnChildren(ListView listView){
+        ListAdapter listAdapter = (ListAdapter) listView.getAdapter();
+        if(listAdapter == null) return;
+        int totalHeight = 0;
+        for(int i = 0; i < listAdapter.getCount(); i++){
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+        }
+    }
