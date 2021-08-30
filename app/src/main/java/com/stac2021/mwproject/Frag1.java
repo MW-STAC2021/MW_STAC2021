@@ -29,7 +29,7 @@ public class Frag1 extends Fragment {
         View v = inflater.inflate(R.layout.frag1, container, false);
         // infalte : xml 코드를 java에서 보여주는 메소드
         viewFlip = v.findViewById(R.id.viewFlip);
-        viewFlip.setFlipInterval(3000);
+        viewFlip.setFlipInterval(2500);
         viewFlip.startFlipping();
         /*
         bannerPager = v.findViewById(R.id.banner);
