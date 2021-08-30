@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureAllChildren="false"
+        android:layout_gravity="top"
+        android:id="@+id/viewFlip">
+
+        <ImageView
+            android:id="@+id/banner1"
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:src="@drawable/banner1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:id="@+id/banner2"
+            android:layout_gravity="center"
+            android:src="@drawable/banner2" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:id="@+id/banner3"
+            android:layout_gravity="center"
+            android:src="@drawable/banner3" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:id="@+id/banner4"
+            android:layout_gravity="center"
+            android:src="@drawable/banner4" />
+    </ViewFlipper>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="test"
+        android:gravity="center" />
+</LinearLayout>
