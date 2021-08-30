@@ -12,26 +12,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/shadow">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mypage_color"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:text="마이페이지"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="#717171"/>
-    </LinearLayout>
+    <include
+        layout="@layout/mypage_toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
