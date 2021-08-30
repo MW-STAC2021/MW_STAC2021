@@ -21,6 +21,23 @@ public class CallFragment extends Fragment {
     //lawfirm list view
     private ListView lawfirmListView;
     private CallReportListViewAdapter lawfirmAdpater;
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = (ListAdapter) listView.getAdapter();
+        if (listAdapter == null) return;
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,19 +76,4 @@ public class CallFragment extends Fragment {
 
         return v;
     }
-    public static void setListViewHeightBasedOnChildren(ListView listView){
-        ListAdapter listAdapter = (ListAdapter) listView.getAdapter();
-        if(listAdapter == null) return;
-        int totalHeight = 0;
-        for(int i = 0; i < listAdapter.getCount(); i++){
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-        }
-    }
+}
