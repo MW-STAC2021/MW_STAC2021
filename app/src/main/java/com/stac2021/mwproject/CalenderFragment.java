@@ -20,7 +20,7 @@ import static com.prolificinteractive.materialcalendarview.MaterialCalendarView.
 
 public class CalenderFragment extends Fragment {
     MaterialCalendarView calendarView;
-    Button btnWritePeriod;
+    Button btnWritePeriod, btnWritePeriodComplete;
     LinearLayout btnLinear;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,17 +29,23 @@ public class CalenderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
         calendarView = view.findViewById(R.id.calendarView);
         btnWritePeriod = view.findViewById(R.id.writePeriod);
-        btnLinear = view.findViewById(R.id.btnLinear);
+        btnWritePeriodComplete = view.findViewById(R.id.writePeriodComplete);
 
         btnWritePeriod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendarView.setSelectionMode(SELECTION_MODE_RANGE);
-                btnWritePeriod.setBackgroundResource(R.drawable.button_completewriteperiod);
-                btnWritePeriod.setText("완료");
-                btnWritePeriod.setTextColor(Color.parseColor("#ffffff"));
-                btnLinear.setGravity(Gravity.CENTER_HORIZONTAL);
-                btnWritePeriod.setTypeface(null, Typeface.BOLD);
+                btnWritePeriod.setVisibility(View.GONE);
+                btnWritePeriodComplete.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btnWritePeriodComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnWritePeriodComplete.setVisibility(View.GONE);
+                btnWritePeriod.setVisibility(View.VISIBLE);
+                calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_NONE);
             }
         });
         return view;
