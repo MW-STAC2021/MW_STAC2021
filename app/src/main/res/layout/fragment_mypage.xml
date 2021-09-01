@@ -12,26 +12,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/shadow">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mypage_color"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:text="마이페이지"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="#717171"/>
-    </LinearLayout>
+    <include
+        layout="@layout/mypage_toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -86,7 +68,7 @@
                 android:background="@drawable/butten_shape"
                 android:drawableLeft="@drawable/mypage_butten1"
                 android:paddingLeft="20dp"
-                android:drawablePadding="25dp"
+                android:drawablePadding="27dp"
                 android:text="공지사항"
                 android:textSize="16dp"
                 android:gravity="left|center_vertical"
@@ -100,7 +82,7 @@
                 android:background="@drawable/butten_shape"
                 android:drawableLeft="@drawable/mypage_butten2"
                 android:paddingLeft="20dp"
-                android:drawablePadding="25dp"
+                android:drawablePadding="27dp"
                 android:text="개인정보 처리 방침"
                 android:textSize="16dp"
                 android:gravity="left|center_vertical"
@@ -114,7 +96,7 @@
                 android:background="@drawable/butten_shape"
                 android:drawableLeft="@drawable/mypage_butten3"
                 android:paddingLeft="20dp"
-                android:drawablePadding="25dp"
+                android:drawablePadding="27dp"
                 android:text="앱 버전"
                 android:textSize="16dp"
                 android:gravity="left|center_vertical"
@@ -128,7 +110,7 @@
                 android:background="@drawable/butten_shape"
                 android:drawableLeft="@drawable/mypage_butten4"
                 android:paddingLeft="20dp"
-                android:drawablePadding="25dp"
+                android:drawablePadding="27dp"
                 android:text="로그아웃"
                 android:textSize="16dp"
                 android:gravity="left|center_vertical"
@@ -142,7 +124,7 @@
                 android:background="@drawable/butten_shape"
                 android:drawableLeft="@drawable/mypage_butten5"
                 android:paddingLeft="20dp"
-                android:drawablePadding="25dp"
+                android:drawablePadding="20dp"
                 android:text="회원탈퇴"
                 android:textSize="16dp"
                 android:gravity="left|center_vertical"
