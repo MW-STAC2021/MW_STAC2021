@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#F29F80</item>
         <item name="colorPrimaryDark">#fff</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#F29F80</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="windowActionBar">false</item>
