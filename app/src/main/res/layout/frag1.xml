@@ -13,36 +13,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="Orientation">
+            android:orientation="vertical">
             <ViewFlipper
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:measureAllChildren="false"
-                android:layout_gravity="top"
-                android:id="@+id/viewFlip">
+                android:id="@+id/viewFlip"
+                android:paddingTop="30dp">
 
                 <ImageView
                     android:id="@+id/banner1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="285dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
                     android:src="@drawable/banner1" />
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="285dp"
+                    android:layout_height="225dp"
                     android:id="@+id/banner2"
                     android:layout_gravity="center"
                     android:src="@drawable/banner2" />
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="285dp"
+                    android:layout_height="225dp"
                     android:id="@+id/banner3"
                     android:layout_gravity="center"
                     android:src="@drawable/banner3" />
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="285dp"
+                    android:layout_height="225dp"
                     android:id="@+id/banner4"
                     android:layout_gravity="center"
                     android:src="@drawable/banner4" />

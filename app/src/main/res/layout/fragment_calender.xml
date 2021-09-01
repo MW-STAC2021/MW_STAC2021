@@ -41,6 +41,7 @@
                 android:layout_height="38dp"
                 android:id="@+id/writePeriodComplete"
                 android:text="완료"
+                android:textStyle="bold"
                 style="?android:attr/borderlessButtonStyle"
                 android:textSize="12sp"
                 android:textColor="#fff"
