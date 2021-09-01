@@ -50,9 +50,6 @@ public class CalenderFragment extends Fragment {
         final AlertDialog dlg = new AlertDialog.Builder(getContext()).create();
         dlg.setView(dialogView);
 
-        spe.putString("period", "");
-        spe.putString("term", "");
-        spe.commit();
 
         period = sp.getString("period", "");
         term = sp.getString("term", "");
