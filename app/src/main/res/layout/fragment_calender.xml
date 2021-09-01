@@ -22,12 +22,8 @@
         app:mcv_tileHeight="65dp"
         app:mcv_selectionMode="none"
         />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btnLinear"
-            android:gravity="right">
         <Button
+            android:layout_gravity="right"
             android:layout_marginTop="30dp"
             android:layout_width="130dp"
             android:layout_height="38dp"
@@ -37,6 +33,18 @@
             android:textSize="12sp"
             android:textColor="#794F40"
             android:background="@drawable/button_writeperiod" />
-        </LinearLayout>
+            <Button
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="30dp"
+                android:layout_width="130dp"
+                android:layout_height="38dp"
+                android:id="@+id/writePeriodComplete"
+                android:text="완료"
+                style="?android:attr/borderlessButtonStyle"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:background="@drawable/button_completewriteperiod" />
+
     </LinearLayout>
 </FrameLayout>
