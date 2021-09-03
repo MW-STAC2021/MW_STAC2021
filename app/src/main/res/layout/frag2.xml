@@ -276,11 +276,11 @@
                                 android:layout_marginBottom="10dp"
                                 android:layout_width="170dp"
                                 android:layout_height="140dp"
-                                android:src="@drawable/thumbnail02" />
+                                android:src="@drawable/thumbnail5" />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
-                                android:text="생리통의 좋은 것"
+                                android:text=""
                                 android:ellipsize="end"
                                 android:maxLines="1"
                                 android:textSize="15dp"
@@ -351,7 +351,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
-                                android:text="제목을 뭐할지 모르겠어..ㅋ"
+                                android:text="생리통의 좋은 것"
                                 android:ellipsize="end"
                                 android:maxLines="1"
                                 android:textSize="15dp"
