@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -13,16 +14,21 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.stac2021.mwproject.BannerAdapter;
+import com.stac2021.mwproject.ExpandableHeightGridView;
+import com.stac2021.mwproject.MainCardViewAdapter;
 import com.stac2021.mwproject.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Frag1 extends Fragment {
-    ViewFlipper viewFlip;
-    private ViewPager bannerPager;
-    private BannerAdapter bannerAdapter;
 
+    ViewFlipper viewFlip;
+    ExpandableHeightGridView gridView;
+    MainCardViewAdapter adapter;
+    String[] itemTitle = {"생리대 사이즈 종류", "쓰레기 분리수거 하는법", "세탁기 돌리는 방법", "전구 갈아끼우는 방법", "생리 용퓸 종류들을 알려줄게!", "피임약 복용 방법을 알려줄게!",
+    "월경 주기 계산 방법을 알려줄게!", "생리대 사용 방법을 알려줄게!", "생리컵 사용 방법을 알려줄게"};
+    Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
@@ -34,29 +40,11 @@ public class Frag1 extends Fragment {
         viewFlip = v.findViewById(R.id.viewFlip);
         viewFlip.setFlipInterval(2500);
         viewFlip.startFlipping();
-        /*
-        bannerPager = v.findViewById(R.id.banner);
-        bannerAdapter = new BannerAdapter(v.getContext());
-        bannerPager.setAdapter(bannerAdapter);
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            @Override
-            public void run() {
-                if(currentPage == 3) {
-                    currentPage = 0;
-                }
-                bannerPager.setCurrentItem(currentPage++, true);
-            }
-        };
+        gridView = (ExpandableHeightGridView)(v.findViewById(R.id.gridView));
+        adapter = new MainCardViewAdapter(itemImage, itemTitle);
+        gridView.setAdapter(adapter);
+        gridView.setExpanded(true);
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, DELAY_MS, PERIOD_MS);
-         */
         return v;
     }
 

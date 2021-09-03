@@ -1,432 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
-        android:id="@+id/ScrollView1"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-        <LinearLayout
+        <ViewFlipper
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ViewFlipper
+            android:measureAllChildren="false"
+            android:id="@+id/viewFlip"
+            android:paddingTop="30dp">
+
+            <ImageView
+                android:id="@+id/banner1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:measureAllChildren="false"
-                android:id="@+id/viewFlip"
-                android:paddingTop="30dp">
+                android:layout_height="225dp"
+                android:src="@drawable/banner1" />
 
-                <ImageView
-                    android:id="@+id/banner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="225dp"
-                    android:src="@drawable/banner1" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="225dp"
-                    android:id="@+id/banner2"
-                    android:layout_gravity="center"
-                    android:src="@drawable/banner2" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="225dp"
-                    android:id="@+id/banner3"
-                    android:layout_gravity="center"
-                    android:src="@drawable/banner3" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="225dp"
-                    android:id="@+id/banner4"
-                    android:layout_gravity="center"
-                    android:src="@drawable/banner4" />
-            </ViewFlipper>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:gravity="center">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview1"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail1" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="생리대 사이즈와 종류 알아보기"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview2"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail11" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="세탁기 돌리는 방법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:gravity="center">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview3"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail9" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="쌀 보관 방법을 알려줄게!"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview4"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail3" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="생리 용품 종류를 알아보자"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:gravity="center">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview5"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail2" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="알맞은 생리대 사용법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview6"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail4" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="알맞은 생리컵 사용법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:gravity="center">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview7"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail7" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="월경주기 계산법은?"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview8"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail10" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="쓰레기 분리수거 하는 법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:gravity="center">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview9"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail6" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="올바른 피임약 복용법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview10"
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="5dp"
-                        app:cardCornerRadius="15dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:focusable="true"
-                        android:clickable="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_marginBottom="10dp"
-                                android:layout_width="170dp"
-                                android:layout_height="140dp"
-                                android:src="@drawable/thumbnail8" />
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="20dp"
-                                android:text="전구 갈아끼우는 방법"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15dp"
-                                android:textColor="#424242"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="225dp"
+                android:id="@+id/banner2"
+                android:layout_gravity="center"
+                android:src="@drawable/banner2" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="225dp"
+                android:id="@+id/banner3"
+                android:layout_gravity="center"
+                android:src="@drawable/banner3" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="225dp"
+                android:id="@+id/banner4"
+                android:layout_gravity="center"
+                android:src="@drawable/banner4" />
+        </ViewFlipper>
+        <com.stac2021.mwproject.ExpandableHeightGridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:layout_marginRight="10dp"
+            android:verticalSpacing="20dp"
+            android:horizontalSpacing="15dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/gridView"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+        </com.stac2021.mwproject.ExpandableHeightGridView>
+    </LinearLayout>
+</ScrollView>
