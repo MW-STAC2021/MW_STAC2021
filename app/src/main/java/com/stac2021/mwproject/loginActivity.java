@@ -1,8 +1,8 @@
 package com.stac2021.mwproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 class LoginActivity extends AppCompatActivity {
 
