@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".BookmarkFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ListView
         android:layout_marginTop="10dp"
         android:dividerHeight="0px"
