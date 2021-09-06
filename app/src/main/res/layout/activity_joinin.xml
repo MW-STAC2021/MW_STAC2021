@@ -11,6 +11,7 @@
         android:textColor="#000"
         android:textStyle="bold" />
     <EditText
+        android:id="@+id/joinNmae"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이름을 적어주세요."
@@ -26,6 +27,7 @@
         android:textColor="#000"
         android:textStyle="bold" />
     <EditText
+        android:id="@+id/joinId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="아이디를 적어주세요."
@@ -41,12 +43,14 @@
         android:textColor="#000"
         android:textStyle="bold" />
     <EditText
+        android:id="@+id/joinPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="비밀번호를 적어주세요."
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />
     <EditText
+        android:id="@+id/joinCheckPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="비밀번호 확인"
@@ -62,24 +66,10 @@
         android:textColor="#000"
         android:textStyle="bold" />
     <EditText
+        android:id="@+id/joinEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이메일을 적어주세요."
-        android:backgroundTint="#A4A4A4"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        android:textSize="16sp"
-        android:textColor="#000"
-        android:textStyle="bold" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="이름을 적어주세요."
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />
 
