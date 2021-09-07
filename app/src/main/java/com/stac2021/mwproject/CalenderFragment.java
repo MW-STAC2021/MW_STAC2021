@@ -7,8 +7,10 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -20,8 +22,15 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.prolificinteractive.materialcalendarview.MaterialCalendarView.SELECTION_MODE_RANGE;
@@ -45,6 +54,7 @@ public class CalenderFragment extends Fragment {
         sp = getActivity().getSharedPreferences("pref", 0);
         spe = sp.edit();
         ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
+
 
         View dialogView = View.inflate(getContext(), R.layout.dialog_period, null);
         final AlertDialog dlg = new AlertDialog.Builder(getContext()).create();
@@ -95,13 +105,20 @@ public class CalenderFragment extends Fragment {
         });
 
         btnWritePeriodComplete.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 btnWritePeriodComplete.setVisibility(View.GONE);
                 btnWritePeriod.setVisibility(View.VISIBLE);
+                final List<CalendarDay> dates = calendarView.getSelectedDates();
+                Decorator decorator = new Decorator(Color.RED, dates);
+                calendarView.addDecorator(decorator);
                 calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_NONE);
             }
         });
+
+
         return view;
     }
+
 }
