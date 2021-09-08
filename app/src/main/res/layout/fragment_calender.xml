@@ -6,10 +6,9 @@
     tools:context=".CalenderFragment"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -17,35 +16,49 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#F29F80"
         app:mcv_tileHeight="65dp"
         app:mcv_selectionMode="none"
         />
-        <Button
-            android:layout_gravity="right"
+
+        <ImageView
             android:layout_marginTop="30dp"
+            android:id="@+id/calendar_description"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/calendarView"
+            android:layout_alignLeft="@+id/calendarView"
+            android:src="@drawable/calendar_description2" />
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:id="@+id/writePeriod"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="130dp"
             android:layout_height="38dp"
-            android:id="@+id/writePeriod"
+            android:layout_below="@+id/calendarView"
+            android:layout_alignRight="@+id/calendarView"
+            android:background="@drawable/button_writeperiod"
             android:text="월경 기록하기"
-            style="?android:attr/borderlessButtonStyle"
-            android:textSize="12sp"
             android:textColor="#794F40"
-            android:background="@drawable/button_writeperiod" />
-            <Button
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:layout_marginTop="30dp"
-                android:layout_width="130dp"
-                android:layout_height="38dp"
-                android:id="@+id/writePeriodComplete"
-                android:text="완료"
-                android:textStyle="bold"
-                style="?android:attr/borderlessButtonStyle"
-                android:textSize="12sp"
-                android:textColor="#fff"
-                android:background="@drawable/button_completewriteperiod" />
+            android:textSize="12sp" />
 
-    </LinearLayout>
+        <Button
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:layout_width="130dp"
+            android:layout_height="38dp"
+            android:id="@+id/writePeriodComplete"
+            android:text="완료"
+            android:textStyle="bold"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_below="@+id/calendarView"
+            android:layout_alignRight="@+id/calendarView"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:background="@drawable/button_completewriteperiod" />
+    </RelativeLayout>
 </FrameLayout>

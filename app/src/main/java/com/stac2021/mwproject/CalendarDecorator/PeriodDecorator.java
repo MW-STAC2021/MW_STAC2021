@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.CalendarDecorator;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -18,17 +18,18 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-public class Decorator implements DayViewDecorator {
+public class PeriodDecorator implements DayViewDecorator {
     private int color;
     private final HashSet<CalendarDay> dates = new HashSet<>();
 
 
-    public Decorator(int color, List<CalendarDay> dates) {
+    public PeriodDecorator(int color, List<CalendarDay> dates) {
         this.color = color;
         for(int i=0; i<dates.size(); i++) {
             this.dates.add(dates.get(i));
         }
     }
+
 
     @Override
     public boolean shouldDecorate(CalendarDay day) {
@@ -37,6 +38,6 @@ public class Decorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new DotSpan(5, color));
+        view.addSpan(new DotSpan(8, color));
     }
 }
