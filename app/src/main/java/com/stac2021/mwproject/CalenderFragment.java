@@ -2,16 +2,21 @@ package com.stac2021.mwproject;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,6 +31,8 @@ import com.stac2021.mwproject.CalendarDecorator.NextPeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.OvulationDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PregnantPossibleDecorator;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import java.util.List;
 
@@ -40,12 +47,19 @@ public class CalenderFragment extends Fragment {
     EditText edtText1, edtText2;
     String period, term;
     ImageView desciption;
+    androidx.appcompat.widget.Toolbar tb;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
+        tb = view.findViewById(R.id.toolbar) ;
+        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
+
         calendarView = view.findViewById(R.id.calendarView);
         btnWritePeriod = view.findViewById(R.id.writePeriod);
         btnWritePeriodComplete = view.findViewById(R.id.writePeriodComplete);
@@ -127,8 +141,24 @@ public class CalenderFragment extends Fragment {
             }
         });
 
-
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_calender, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+                // Toast.makeText(getContext(), "설정 넘어가기", Toast.LENGTH_SHORT).show();
+                Intent in = new Intent(getContext(), PeriodSetting.class);
+                startActivity(in);
+
+        }
+        return false;
+    }
 }

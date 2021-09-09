@@ -15,30 +15,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:measureAllChildren="false"
-            android:id="@+id/viewFlip"
-            android:paddingTop="30dp">
-
+            android:id="@+id/viewFlip">
             <ImageView
                 android:id="@+id/banner1"
-                android:layout_width="match_parent"
-                android:layout_height="225dp"
+                android:layout_width="wrap_content"
+                android:layout_height="215dp"
+                android:scaleType="fitStart"
                 android:src="@drawable/banner1" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="225dp"
+                android:layout_height="215dp"
                 android:id="@+id/banner2"
                 android:layout_gravity="center"
+                android:scaleType="fitStart"
                 android:src="@drawable/banner2" />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="225dp"
+                android:layout_height="215dp"
+                android:scaleType="fitStart"
                 android:id="@+id/banner3"
                 android:layout_gravity="center"
                 android:src="@drawable/banner3" />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="225dp"
+                android:scaleType="fitStart"
+                android:layout_height="215dp"
                 android:id="@+id/banner4"
                 android:layout_gravity="center"
                 android:src="@drawable/banner4" />

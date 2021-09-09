@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookmarkFragment">
-
-    <ListView
-        android:layout_marginTop="10dp"
-        android:dividerHeight="0px"
-        android:divider="#FFFFFF"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list" />
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/toolbar_favorite"
+            android:id="@+id/toolbar" />
+        <ListView
+            android:layout_below="@+id/toolbar"
+            android:dividerHeight="0px"
+            android:divider="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list" />
+    </RelativeLayout>
+
 
 </FrameLayout>
