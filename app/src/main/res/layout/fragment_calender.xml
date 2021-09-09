@@ -4,50 +4,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalenderFragment"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    >
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+        <include
+            layout="@layout/toolbar_calender"
+            android:id="@+id/toolbar" />
+
 
     <!-- TODO: Update blank fragment layout -->
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/toolbar"
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#F29F80"
-        app:mcv_tileHeight="65dp"
+        app:mcv_tileHeight="60dp"
         app:mcv_selectionMode="none"
         />
 
         <ImageView
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/calendar_description"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/calendarView"
-            android:layout_alignLeft="@+id/calendarView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:src="@drawable/calendar_description2" />
 
         <Button
-            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/writePeriod"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="130dp"
             android:layout_height="38dp"
-            android:layout_below="@+id/calendarView"
-            android:layout_alignRight="@+id/calendarView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:background="@drawable/button_writeperiod"
             android:text="월경 기록하기"
             android:textColor="#794F40"
             android:textSize="12sp" />
 
         <Button
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             android:visibility="gone"
             android:layout_width="130dp"
             android:layout_height="38dp"

@@ -2,6 +2,7 @@ package com.stac2021.mwproject;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 
 public class MypageFragment extends Fragment {
 
+    androidx.appcompat.widget.Toolbar tb;
     RecyclerView recyclerView;
     MypageCardViewAdapter adapter;
     String[] itemTitle = {"생리대 사이즈 종류", "쓰레기 분리수거 하는법", "세탁기 돌리는 방법", "전구 갈아끼우는 방법", "생리 용퓸 종류들을 알려줄게!", "피임약 복용 방법을 알려줄게!",
@@ -25,6 +27,8 @@ public class MypageFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
+        tb = view.findViewById(R.id.toolbar) ;
+        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         adapter = new MypageCardViewAdapter(itemImage, itemTitle);

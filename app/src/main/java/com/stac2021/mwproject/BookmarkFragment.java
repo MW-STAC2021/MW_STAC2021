@@ -2,6 +2,7 @@ package com.stac2021.mwproject;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -23,6 +24,8 @@ public class BookmarkFragment extends Fragment {
     Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
     String[] itemCategory = {"생활정보", "여성정보", "여성정보", "여성정보", "생활정보", "여성정보", "생활정보", "여성정보", "여성정보"};
 
+    androidx.appcompat.widget.Toolbar tb;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class BookmarkFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bookmark, container, false);
         mList = view.findViewById(R.id.list);
         mArray = new ArrayList<>();
+        tb = view.findViewById(R.id.toolbar) ;
+        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
 
         for(int i=0; i<itemImage.length; i++) {
             mItem = new Favorite(ContextCompat.getDrawable(getContext(), itemImage[i]), itemTitle[i], itemCategory[i], true);

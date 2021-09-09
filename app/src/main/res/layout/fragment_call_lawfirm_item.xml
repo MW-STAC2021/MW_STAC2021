@@ -14,9 +14,10 @@
 
         <TextView
             android:id="@+id/lawfirmText"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:text="법무법인 굳센(24시)"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="16sp"
             android:textColor="#000" />
         <View
@@ -28,7 +29,6 @@
             android:id="@+id/lawfirmNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="02-598-8284"
             android:textSize="16sp"
             android:textColor="#AAAAAA"/>
 
