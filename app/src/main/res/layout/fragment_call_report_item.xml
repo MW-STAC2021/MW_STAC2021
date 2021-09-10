@@ -13,7 +13,7 @@
 
             <TextView
                 android:id="@+id/reportText"
-                android:layout_width="170dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
