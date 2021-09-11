@@ -2,6 +2,7 @@ package server_userActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.stac2021.mwproject.MainActivity;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -110,6 +112,7 @@ public class JoinActivity extends AppCompatActivity {
         } else {
             startJoin(new JoinData(inputId, inputName, inputEmail, inputPw));
             showProgress(true);
+
         }
 
     }
@@ -122,7 +125,12 @@ public class JoinActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
+                    //회원가입 성공 시 메인화면으로 이동
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    //액티비티 종료
                     finish();
+
                 }
             }
 
