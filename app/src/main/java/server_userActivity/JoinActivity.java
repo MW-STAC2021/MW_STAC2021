@@ -125,9 +125,6 @@ public class JoinActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    //회원가입 성공 시 메인화면으로 이동
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
                     //액티비티 종료
                     finish();
 
