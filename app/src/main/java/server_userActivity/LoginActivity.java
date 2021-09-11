@@ -1,5 +1,6 @@
 package server_userActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.stac2021.mwproject.MainActivity;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -88,6 +90,15 @@ public class LoginActivity extends AppCompatActivity {
                 LoginResponse result = response.body();
                 Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
+
+                if (result.getCode() == 200) {
+                    //로그인 성공 시 메인화면으로 이동
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    //액티비티 종료
+                    finish();
+
+                }
             }
 
             @Override
