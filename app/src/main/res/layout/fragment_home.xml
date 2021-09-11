@@ -5,23 +5,39 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#000"
+            android:id="@+id/searchView">
+        </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabLayout"
+            android:background="#ffffff"
+            app:tabGravity="fill"
+            android:layout_below="@+id/searchView"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="#F29F80"
+            app:tabIndicatorHeight="1.5dp"
+            app:tabTextColor="@color/unselected_color"
+            app:tabSelectedTextColor="#000000">
+        </com.google.android.material.tabs.TabLayout>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_below="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabLayout"
-        android:background="#ffffff"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        app:tabIndicatorColor="#F29F80"
-        app:tabIndicatorHeight="1.5dp"
-        app:tabTextColor="@color/unselected_color"
-        app:tabSelectedTextColor="#000000">
-    </com.google.android.material.tabs.TabLayout>
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            <!-- TODO: Update blank fragment layout -->
+
+
+
+    </RelativeLayout>
 
 </FrameLayout>

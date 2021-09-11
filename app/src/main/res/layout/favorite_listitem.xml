@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingBottom="20dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/favorite_round"
+        android:id="@+id/favorite_image"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favorite_title"
+            android:textSize="16sp"
+            android:text="~하는 방법"
+            android:textColor="#000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favorite_category"
+            android:textSize="12sp"
+            android:text="여성"
+            android:textColor="#777676" />
+    </LinearLayout>
+    <CheckBox
+        android:button="@null"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/favorite_checkbox"
+        android:id="@+id/favorite_check"/>
+
+</LinearLayout>

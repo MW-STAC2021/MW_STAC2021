@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="여성 정보"
-        android:gravity="center" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.stac2021.mwproject.ExpandableHeightGridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:layout_marginRight="10dp"
+            android:verticalSpacing="20dp"
+            android:horizontalSpacing="15dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/gridView"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center">
+        </com.stac2021.mwproject.ExpandableHeightGridView>
+    </LinearLayout>
+
+</ScrollView>
