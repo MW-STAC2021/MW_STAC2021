@@ -9,26 +9,13 @@
     app:titleTextColor="#717171"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_toRightOf="@+id/icon"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:layout_marginLeft="5dp"
-            android:layout_width="10dp"
-            android:layout_height="17dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/icon_back"
-            android:id="@+id/btnBack"/>
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="월경주기 설정"
-            android:layout_toRightOf="@+id/btnBack"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
+        android:text="월경주기 설정"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </androidx.appcompat.widget.Toolbar>
