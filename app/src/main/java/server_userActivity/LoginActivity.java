@@ -29,23 +29,34 @@ public class LoginActivity extends AppCompatActivity {
     private EditText viewId;
     private EditText viewPw;
     private Button loginBtn;
+    private Button intentJoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        service = RetrofitClient.getClient().create(ServiceApi.class);
+        mProgressView = findViewById(R.id.login_progress);
+
         viewId = findViewById(R.id.loginId);
         viewPw = findViewById(R.id.loginPw);
         loginBtn = findViewById(R.id.loginBtn);
-        mProgressView = findViewById(R.id.login_progress);
-
-        service = RetrofitClient.getClient().create(ServiceApi.class);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 attemptLogin();
+            }
+        });
+
+        intentJoin = findViewById(R.id.intentJoin);
+        intentJoin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
