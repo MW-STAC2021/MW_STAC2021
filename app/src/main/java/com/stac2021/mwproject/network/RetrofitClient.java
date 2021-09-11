@@ -3,14 +3,14 @@ package com.stac2021.mwproject.network;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitCilent {
+public class RetrofitClient {
     private final static String BASE_URL =
-            "http://54.89.2360.270:3000/";
+            "http://54.89.236.27:3000/";
     private static Retrofit retrofit = null;
-/*    private RetrofitClient(){
 
-    }*/
+    private RetrofitClient(){
 
+    }
     public static Retrofit getClient(){
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
