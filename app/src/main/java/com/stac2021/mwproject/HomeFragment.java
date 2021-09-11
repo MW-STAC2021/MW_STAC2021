@@ -1,5 +1,6 @@
 package com.stac2021.mwproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.stac2021.mwproject.mainTabLayout.Frag1;
@@ -21,6 +23,7 @@ public class HomeFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     FragmentAdapter adapter;
+    TextView textSearch;
     private Frag1 frag1;
     private Frag2 frag2;
     private Frag3 frag3;
@@ -33,6 +36,16 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState)  {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        textSearch = view.findViewById(R.id.textSearch);
+
+        textSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getContext(), SearchActivity.class);
+                startActivity(in);
+            }
+        });
 
         tabLayout = (TabLayout)view.findViewById(R.id.tabLayout);
         viewPager = (ViewPager)view.findViewById(R.id.viewPager);
