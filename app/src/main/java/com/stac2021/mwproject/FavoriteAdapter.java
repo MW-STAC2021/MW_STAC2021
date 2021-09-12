@@ -12,11 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FavoriteAdapter extends BaseAdapter {
     Context mContext;
-    ArrayList<Favorite> mData;
-    public FavoriteAdapter(Context mContext, ArrayList<Favorite> mData) {
+    List<Favorite> mData;
+    public FavoriteAdapter(Context mContext, List<Favorite> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
