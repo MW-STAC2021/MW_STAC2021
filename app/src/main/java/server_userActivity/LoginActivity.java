@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText viewId;
     private EditText viewPw;
     private Button loginBtn;
+    private Button unLoginBtn;
     private Button intentJoin;
 
     @Override
@@ -55,6 +56,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+                startActivity(intent);
+            }
+        });
+        unLoginBtn = findViewById(R.id.unLoginBtn);
+        unLoginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
+                Log.d("myqpp", String.valueOf(result));
                 Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
