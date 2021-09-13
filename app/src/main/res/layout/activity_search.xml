@@ -24,6 +24,9 @@
             android:id="@+id/btnBack"
             android:src="@drawable/icon_back" />
         <EditText
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:id="@+id/editSearch"
             android:paddingLeft="20dp"
             android:layout_marginLeft="10dp"
             android:layout_width="match_parent"

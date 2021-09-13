@@ -56,16 +56,17 @@
             android:textSize="12sp" />
 
         <Button
-            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:visibility="gone"
             android:layout_width="130dp"
             android:layout_height="38dp"
             android:id="@+id/writePeriodComplete"
             android:text="완료"
             android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_below="@+id/calendarView"
-            android:layout_alignRight="@+id/calendarView"
             android:textSize="12sp"
             android:textColor="#fff"
             android:background="@drawable/button_completewriteperiod" />
