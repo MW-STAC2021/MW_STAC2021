@@ -1,27 +1,37 @@
 package com.stac2021.mwproject.mainTabLayout;
 
 import android.os.Bundle;
-import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
-import com.stac2021.mwproject.BannerAdapter;
 import com.stac2021.mwproject.ExpandableHeightGridView;
 import com.stac2021.mwproject.MainCardViewAdapter;
 import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.network.RetrofitClient;
+import com.stac2021.mwproject.network.ServiceApi;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
-public class Frag1 extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import server_info_data.AllInfoResponse;
+
+public class allInfo extends Fragment {
+
+    TextView title;
+    ImageView thumbNail;
+    private ServiceApi service;
+    AllInfoResponse item;
 
     ViewFlipper viewFlip;
     ExpandableHeightGridView gridView;
@@ -36,16 +46,45 @@ public class Frag1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.frag1, container, false);
+
+
         // infalte : xml 코드를 java에서 보여주는 메소드
-        viewFlip = v.findViewById(R.id.viewFlip);
-        viewFlip.setFlipInterval(2500);
-        viewFlip.startFlipping();
-        gridView = (ExpandableHeightGridView)(v.findViewById(R.id.gridView));
-        adapter = new MainCardViewAdapter(itemImage, itemTitle);
-        gridView.setAdapter(adapter);
-        gridView.setExpanded(true);
+//        viewFlip = v.findViewById(R.id.viewFlip);
+//        viewFlip.setFlipInterval(2500);
+//        viewFlip.startFlipping();
+//        gridView = (ExpandableHeightGridView)(v.findViewById(R.id.gridView));
+//        adapter = new MainCardViewAdapter(itemImage, itemTitle);
+//        gridView.setAdapter(adapter);
+//        gridView.setExpanded(true);
 
         return v;
+    }
+    private void selectFoodInfo() {
+        service = RetrofitClient.getClient().create(ServiceApi.class);
+        Call<AllInfoResponse> call = service.listAllInfo();
+        call.enqueue(new Callback<AllInfoResponse>() {
+            @Override
+            public void onResponse(Call<AllInfoResponse> call, Response<AllInfoResponse> response) {
+                AllInfoResponse infoItem = response.body();
+                if (response.isSuccessful() && infoItem != null) {
+                    Log.d("myapp", "success");
+                    item = infoItem;
+                    setView();
+                } else {
+                    Log.d("myapp", "error");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllInfoResponse> call, Throwable t) {
+                Log.d("myapp", "error");
+
+            }
+        });
+    }
+
+    private void setView(){
+
     }
 
 }
