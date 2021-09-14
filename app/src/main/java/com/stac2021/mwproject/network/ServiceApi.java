@@ -9,6 +9,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import server_info_data.AllInfoResponse;
 import server_user_data.JoinData;
@@ -28,8 +29,8 @@ public interface ServiceApi {
     Call<ResponseBody> postList(@Field("data") String data);
 
     //메인 화면 리스트 [ 필요 데이터 : 프라이머리 키 id(다시 아이디 부여해도 되는지 모르겠음), 제목, 썸네일 ]
-    @GET("/info/AllInfo")
-    Call<List<AllInfoResponse>> listAllInfo(@Query("type") String type);
+    @GET("/info/infoList/{type}")
+    Call<List<AllInfoResponse>> listAllInfo(@Path("type") String type);
 }
 /*
     @SerializedName("info_id") public int infoId;

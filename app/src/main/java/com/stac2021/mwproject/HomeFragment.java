@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.stac2021.mwproject.mainTabLayout.allInfo;
-import com.stac2021.mwproject.mainTabLayout.Frag2;
-import com.stac2021.mwproject.mainTabLayout.Frag3;
+import com.stac2021.mwproject.mainTabLayout.femaleInfo;
+import com.stac2021.mwproject.mainTabLayout.livingInfo;
 import com.stac2021.mwproject.mainTabLayout.FragmentAdapter;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -29,8 +29,8 @@ public class HomeFragment extends Fragment {
     FragmentAdapter adapter;
     TextView textSearch;
     private allInfo frag1;
-    private Frag2 frag2;
-    private Frag3 frag3;
+    private femaleInfo frag2;
+    private livingInfo frag3;
     private BannerAdapter bannerAdapter;
     private Button btn;
 

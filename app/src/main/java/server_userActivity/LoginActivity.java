@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 회원가입 인텐트
         intentJoin = findViewById(R.id.intentJoin);
         intentJoin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // 비회원 로그인 인텐트
         unLoginBtn = findViewById(R.id.unLoginBtn);
         unLoginBtn.setOnClickListener(new View.OnClickListener(){
             @Override

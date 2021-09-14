@@ -11,8 +11,8 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     public FragmentAdapter(FragmentManager fm) { // 생성자 오버로딩
         super(fm);
         fragmentList.add(new allInfo());
-        fragmentList.add(new Frag2());
-        fragmentList.add(new Frag3());
+        fragmentList.add(new femaleInfo());
+        fragmentList.add(new livingInfo());
     }
     public Fragment getItem(int position) {
         return fragmentList.get(position);
