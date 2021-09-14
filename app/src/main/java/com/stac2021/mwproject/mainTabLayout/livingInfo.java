@@ -48,6 +48,9 @@ public class livingInfo extends Fragment {
         adapter = new MainCardViewAdapter(itemImage, itemTitle);
         gridView.setAdapter(adapter);
         gridView.setExpanded(true);
+
+        infoData(inflater, container);
+
         return v;
     }
 

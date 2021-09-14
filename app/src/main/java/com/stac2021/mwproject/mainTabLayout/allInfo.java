@@ -54,7 +54,6 @@ public class allInfo extends Fragment {
 
         infoData(inflater, container);
 
-        Log.d("myapp", "oncreate : " + infoId);
 //        Log.d("myapp", "title : " + array.getTitle());
 //        Log.d("myapp", "thumbnail : " + array.getThumbnailPath());
 
@@ -106,7 +105,7 @@ public class allInfo extends Fragment {
     private void setView(LayoutInflater inflater, ViewGroup container){
         View v = inflater.inflate(R.layout.frag1, container, false);
 
-        Log.d("myapp", "setView : " + infoId);
+        //Log.d("myapp", "setView : " + infoId);
 //        viewFlip = v.findViewById(R.id.viewFlip);
 //        viewFlip.setFlipInterval(2500);
 //        viewFlip.startFlipping();

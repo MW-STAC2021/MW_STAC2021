@@ -32,7 +32,6 @@ public class HomeFragment extends Fragment {
     private femaleInfo frag2;
     private livingInfo frag3;
     private BannerAdapter bannerAdapter;
-    private Button btn;
 
     public HomeFragment() {
     }
@@ -66,14 +65,6 @@ public class HomeFragment extends Fragment {
         tabLayout.getTabAt(0).setText("통합 정보"); //탭이름생성
         tabLayout.getTabAt(1).setText("여성 정보");
         tabLayout.getTabAt(2).setText("생활 정보");
-
-        btn = view.findViewById(R.id.postBtn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
