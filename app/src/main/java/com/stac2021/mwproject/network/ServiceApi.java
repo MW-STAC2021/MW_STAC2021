@@ -29,13 +29,16 @@ public interface ServiceApi {
 
     //메인 화면 리스트 [ 필요 데이터 : 프라이머리 키 id(다시 아이디 부여해도 되는지 모르겠음), 제목, 썸네일 ]
     @GET("/info/AllInfo")
-    Call<AllInfoResponse> listAllInfo(//@Query("info_type") int infoType,
-                                            //@Query("info_type_image") int infoTypeImage,
-                                            //@Query("posting_time") String infoPostingTime,
-                                            //@Query("image_path") String imagePath
-    );
+    Call<List<AllInfoResponse>> listAllInfo(@Query("type") String type);
 }
 /*
+    @SerializedName("info_id") public int infoId;
+    @SerializedName("title") public String infoTitle;
+    @SerializedName("thumbnail_path") public String thumbnailPath;
+
+    @Query("info_id") int infoId,
+                                      @Query("title") String infoTitle,
+                                      @Query("thumbnail_path") String thumbnailPath
 CREATE TABLE info(
 	-- primary key | id 자동 생성
 	info_id INT PRIMARY KEY AUTO_INCREMENT,
