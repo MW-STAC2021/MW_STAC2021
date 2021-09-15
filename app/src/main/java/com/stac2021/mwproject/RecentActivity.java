@@ -22,7 +22,7 @@ public class RecentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mypage_recent_layout);
         gridView = (ExpandableHeightGridView)findViewById(R.id.gridView);
-        adapter = new MainCardViewAdapter(itemImage, itemTitle);
+        //adapter = new MainCardViewAdapter(itemImage, itemTitle);
         gridView.setAdapter(adapter);
         gridView.setExpanded(true);
 
