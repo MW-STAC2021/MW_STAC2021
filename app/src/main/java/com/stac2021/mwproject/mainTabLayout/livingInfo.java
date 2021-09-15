@@ -45,16 +45,16 @@ public class livingInfo extends Fragment {
         View v = inflater.inflate(R.layout.frag3, container, false);
         // infalte : xml 코드를 java에서 보여주는 메소드
         gridView = (ExpandableHeightGridView)(v.findViewById(R.id.gridView));
-        adapter = new MainCardViewAdapter(itemImage, itemTitle);
+        //adapter = new MainCardViewAdapter(itemImage, itemTitle);
         gridView.setAdapter(adapter);
         gridView.setExpanded(true);
 
-        infoData(inflater, container);
+        infoData(inflater, container, v);
 
         return v;
     }
 
-    private void infoData(final LayoutInflater inflater, final ViewGroup container) {
+    private void infoData(final LayoutInflater inflater, final ViewGroup container, final View v) {
         service = RetrofitClient.getClient().create(ServiceApi.class);
         Call<List<AllInfoResponse>> call = service.listAllInfo("1");
         call.enqueue(new Callback<List<AllInfoResponse>>() {
@@ -77,7 +77,12 @@ public class livingInfo extends Fragment {
                     }
                     Log.d("myapp", "living - success");
                     Log.d("myapp", "living : " + infoId);
-                    setView(inflater, container);
+
+                    gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
+                    //adapter = new MainCardViewAdapter(itemImage, itemTitle);
+                    adapter = new MainCardViewAdapter(infoThumbNail, infoTitle);
+                    gridView.setAdapter(adapter);
+                    gridView.setExpanded(true);
                     //Log.d("myapp", String.valueOf(result));
                 }else {
                     Log.d("myapp", "living - else err");
