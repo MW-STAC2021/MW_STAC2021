@@ -20,9 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="server_userActivity.JoinActivity"/>
-        <activity android:name="server_userActivity.LoginActivity"/>
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".CardViewActivity"></activity>
+        <activity android:name="server_userActivity.JoinActivity" />
+        <activity android:name="server_userActivity.LoginActivity" />
+        <activity android:name=".SearchActivity" />
         <activity android:name=".NoticeActivity" />
         <activity
             android:name=".SplashActivity"
@@ -30,11 +31,13 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".PeriodSetting" />
         <activity android:name=".RecentActivity" />
     </application>
