@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import server_info_data.AllInfoResponse;
+import server_info_data.InfoListResponse;
 import server_user_data.JoinData;
 import server_user_data.JoinResponse;
 import server_user_data.LoginData;
@@ -31,8 +32,11 @@ public interface ServiceApi {
     //메인 화면 리스트 [ 필요 데이터 : 프라이머리 키 id(다시 아이디 부여해도 되는지 모르겠음), 제목, 썸네일 ]
     @GET("/info/infoList/{type}")
     Call<List<AllInfoResponse>> listAllInfo(@Path("type") String type);
+
+    @GET("/info/list/{id}")
+    Call<List<InfoListResponse>> InfoList(@Path("id") String id);
 }
-/*
+/* bgt6
     @SerializedName("info_id") public int infoId;
     @SerializedName("title") public String infoTitle;
     @SerializedName("thumbnail_path") public String thumbnailPath;
