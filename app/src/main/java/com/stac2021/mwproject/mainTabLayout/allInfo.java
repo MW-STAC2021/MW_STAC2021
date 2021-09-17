@@ -1,5 +1,6 @@
 package com.stac2021.mwproject.mainTabLayout;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -36,6 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import server_info_data.AllInfoResponse;
+import server_userActivity.JoinActivity;
 
 public class allInfo extends Fragment {
 
@@ -54,7 +57,7 @@ public class allInfo extends Fragment {
     MainCardViewAdapter adapter;
     String[] itemTitle = {"생리대 사이즈 종류", "쓰레기 분리수거 하는법", "세탁기 돌리는 방법", "전구 갈아끼우는 방법", "생리 용퓸 종류들을 알려줄게!", "피임약 복용 방법을 알려줄게!",
             "월경 주기 계산 방법을 알려줄게!", "생리대 사용 방법을 알려줄게!", "생리컵 사용 방법을 알려줄게"};
-    Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
+    //Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
@@ -85,27 +88,22 @@ public class allInfo extends Fragment {
             public void onResponse(Call<List<AllInfoResponse>> call, Response<List<AllInfoResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<AllInfoResponse> result = response.body();
-                    //id
+
                     for (AllInfoResponse info : result) {
                         infoId.add(String.valueOf(info.getId()));
-                    }
-                    //title
-                    for (AllInfoResponse info : result) {
                         infoTitle.add(info.getTitle());
-                    }
-                    //thumbnail
-                    for (AllInfoResponse info : result) {
                         infoThumbNail.add(info.getThumbnailPath());
                     }
-                    Log.d("myapp", "allInfo - success");
-                    Log.d("myapp", "allInfo : " + infoId);
-                    Log.d("myapp", infoThumbNail.get(0));
+//                    Log.d("myapp", "allInfo - success");
+//                    Log.d("myapp", "allInfo : " + infoId);
+//                    Log.d("myapp", infoThumbNail.get(0));
                     //Log.d("myapp", String.valueOf(result));
                 } else {
                     Log.d("myapp", "allInfo - else err");
                 }
 
                 viewFlip = v.findViewById(R.id.viewFlip);
+
                 viewFlip.setFlipInterval(2500);
                 viewFlip.startFlipping();
                 gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
@@ -114,12 +112,22 @@ public class allInfo extends Fragment {
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);
 
+                viewFlip.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getContext(), "클릭 리스너", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(getActivity(), JoinActivity.class);
+//                        startActivity(intent);
+                    }
+                });
+
             }
 
             @Override
             public void onFailure(Call<List<AllInfoResponse>> call, Throwable t) {
                 Log.d("myapp", "allInfo - Failure error");
                 Log.e("myapp", "에러 : " + t.getMessage());
+                Toast.makeText(getContext(), "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
 
             }
         });

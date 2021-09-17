@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,20 +64,15 @@ public class femaleInfo extends Fragment {
                 if (response.isSuccessful() && response.body() != null)
                 {
                     List<AllInfoResponse> result = response.body();
-                    //id
+
                     for(AllInfoResponse info : result){
                         infoId.add(String.valueOf(info.getId()));
-                    }
-                    //title
-                    for(AllInfoResponse info : result){
                         infoTitle.add(info.getTitle());
-                    }
-                    //thumbnail
-                    for(AllInfoResponse info : result){
                         infoThumbNail.add(info.getThumbnailPath());
                     }
-                    Log.d("myapp", "female - success");
-                    Log.d("myapp", "female : " + infoId);
+
+//                    Log.d("myapp", "female - success");
+//                    Log.d("myapp", "female : " + infoId);
                     setView(inflater, container);
                     //Log.d("myapp", String.valueOf(result));
 
@@ -95,6 +91,7 @@ public class femaleInfo extends Fragment {
             public void onFailure(Call<List<AllInfoResponse>> call, Throwable t) {
                 Log.d("myapp", "female - Failure error");
                 Log.e("myapp", "에러 : " + t.getMessage());
+                Toast.makeText(getContext(), "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
 
             }
         });

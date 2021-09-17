@@ -70,9 +70,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
-                i = tab.getPosition();
-                Log.d("myapp", String.valueOf(i));
-
             }
 
             @Override

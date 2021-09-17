@@ -1,5 +1,6 @@
 package com.stac2021.mwproject;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -19,6 +20,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import server_userActivity.JoinActivity;
+
 public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<String> img;
     ArrayList<String> title;
@@ -33,7 +36,7 @@ public class MainCardViewAdapter extends BaseAdapter {
 
     public int getCount() {
         //return img.length;
-        Log.d("myapp", "img.size() : " + img.size());
+        //Log.d("myapp", "img.size() : " + img.size());
         return img.size();
     }
 
@@ -51,11 +54,12 @@ public class MainCardViewAdapter extends BaseAdapter {
         ImageView imgv;
         TextView titlev;
 
+
         if (view == null) {
             view = View.inflate(viewGroup.getContext(), R.layout.cardview_item, null);
         }
 
-        Log.d("myapp", "getView success");
+        //Log.d("myapp", "getView success");
 
         imgv = view.findViewById(R.id.imgCardView);
         titlev = view.findViewById(R.id.titleCardView);
@@ -70,14 +74,15 @@ public class MainCardViewAdapter extends BaseAdapter {
         }
         
         //서버 주소 이미지 -> 이미지로 변환
-        final String finalImg_path = img_path;
+        final String finalImg_path = "http://54.89.236.27:3000/infoThumbnail/" + img_path;
+        //Log.d("myapp", "url path : " + finalImg_path);
         Thread uThread = new Thread() {
             @Override
             public void run() {
                 try {
                     //서버에 올려둔 이미지 URL
                     URL url = new URL(finalImg_path);
-                    Log.d("myapp", "url : " + String.valueOf(url));
+                    //Log.d("myapp", "url : " + String.valueOf(url));
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                     conn.setDoInput(true); //Server 통신에서 입력 가능한 상태로 만듦
@@ -107,7 +112,6 @@ public class MainCardViewAdapter extends BaseAdapter {
         imgv.setClipToOutline(true);
 
         //imgv.setImageResource(bitmap);
-
 
         return view;
     }
