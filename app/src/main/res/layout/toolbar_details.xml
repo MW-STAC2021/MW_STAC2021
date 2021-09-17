@@ -23,15 +23,16 @@
             android:id="@+id/icon"
             android:src="@drawable/icon_back" />
         <TextView
+            android:id="@+id/details_type_title"
             android:layout_toRightOf="@+id/icon"
             android:layout_marginRight="20dp"
             android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_height="wrap_content"
-            android:text="type"
+            android:text="제목"
             android:textSize="20sp"
             android:textStyle="bold" />
         <ImageView
+            android:id="@+id/details_type_icon"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
             android:src="@drawable/icon_call"
