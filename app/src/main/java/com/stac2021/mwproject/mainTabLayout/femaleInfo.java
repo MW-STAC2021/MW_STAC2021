@@ -29,7 +29,6 @@ public class femaleInfo extends Fragment {
 
     //retrofit
     private ServiceApi service;
-    AllInfoResponse item;
     //id, title, thumbnail  list
     ArrayList<String> infoId = new ArrayList<>();
     ArrayList<String> infoTitle = new ArrayList<>();
@@ -37,67 +36,43 @@ public class femaleInfo extends Fragment {
 
     ExpandableHeightGridView gridView;
     MainCardViewAdapter adapter;
-    String[] itemTitle = {"생리대 사이즈 종류", "쓰레기 분리수거 하는법", "세탁기 돌리는 방법", "전구 갈아끼우는 방법", "생리 용퓸 종류들을 알려줄게!", "피임약 복용 방법을 알려줄게!",
-            "월경 주기 계산 방법을 알려줄게!", "생리대 사용 방법을 알려줄게!", "생리컵 사용 방법을 알려줄게"};
-    Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02,
-            R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.frag2, container, false);
-        // infalte : xml 코드를 java에서 보여주는 메소드
-        gridView = (ExpandableHeightGridView)(v.findViewById(R.id.gridView));
-        //adapter = new MainCardViewAdapter(itemImage, itemTitle);
-        gridView.setAdapter(adapter);
-        gridView.setExpanded(true);
+        final View v = inflater.inflate(R.layout.frag2, container, false);
 
-        infoData(inflater, container, v);
-        return v;
-    }
-
-    private void infoData(final LayoutInflater inflater, final ViewGroup container, final View v) {
         service = RetrofitClient.getClient().create(ServiceApi.class);
-        Call<List<AllInfoResponse>> call = service.listAllInfo("0");
+        Call<List<AllInfoResponse>> call = service.listAllInfo("all");
         call.enqueue(new Callback<List<AllInfoResponse>>() {
             @Override
             public void onResponse(Call<List<AllInfoResponse>> call, Response<List<AllInfoResponse>> response) {
-                if (response.isSuccessful() && response.body() != null)
-                {
+                if (response.isSuccessful() && response.body() != null) {
                     List<AllInfoResponse> result = response.body();
 
-                    for(AllInfoResponse info : result){
+                    for (AllInfoResponse info : result) {
                         infoId.add(String.valueOf(info.getId()));
                         infoTitle.add(info.getTitle());
                         infoThumbNail.add(info.getThumbnailPath());
                     }
-
-//                    Log.d("myapp", "female - success");
-//                    Log.d("myapp", "female : " + infoId);
-                    setView(inflater, container);
-                    //Log.d("myapp", String.valueOf(result));
-
-                    gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
-                    //adapter = new MainCardViewAdapter(itemImage, itemTitle);
-                    adapter = new MainCardViewAdapter(infoThumbNail, infoTitle);
-                    gridView.setAdapter(adapter);
-                    gridView.setExpanded(true);
-
-                }else {
-                    Log.d("myapp", "female - else err");
+                    Log.d("myapp", "allInfo - success");
+                } else {
+                    Log.d("myapp", "allInfo - else err");
                 }
+
+                // 카드뷰
+                gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
+                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle);
+                gridView.setAdapter(adapter);
+                gridView.setExpanded(true);
             }
 
             @Override
             public void onFailure(Call<List<AllInfoResponse>> call, Throwable t) {
-                Log.d("myapp", "female - Failure error");
+                Log.d("myapp", "allInfo - Failure error");
                 Log.e("myapp", "에러 : " + t.getMessage());
                 Toast.makeText(getContext(), "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
-
             }
         });
-    }
-
-    private void setView(LayoutInflater inflater, ViewGroup container) {
-        View v = inflater.inflate(R.layout.frag1, container, false);
+        return v;
     }
 }
