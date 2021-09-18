@@ -75,7 +75,7 @@ public class allInfo extends Fragment {
 
                 // 카드뷰
                 gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
-                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle);
+                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId);
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);
             }

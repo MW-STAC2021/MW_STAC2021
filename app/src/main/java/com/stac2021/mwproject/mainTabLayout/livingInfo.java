@@ -41,7 +41,7 @@ public class livingInfo extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.frag3, container, false);
         service = RetrofitClient.getClient().create(ServiceApi.class);
-        Call<List<AllInfoResponse>> call = service.listAllInfo("all");
+        Call<List<AllInfoResponse>> call = service.listAllInfo("1");
         call.enqueue(new Callback<List<AllInfoResponse>>() {
             @Override
             public void onResponse(Call<List<AllInfoResponse>> call, Response<List<AllInfoResponse>> response) {
@@ -60,7 +60,7 @@ public class livingInfo extends Fragment {
 
                 // 카드뷰
                 gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
-                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle);
+                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId);
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);
             }
