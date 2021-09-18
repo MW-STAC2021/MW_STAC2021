@@ -2,6 +2,7 @@ package com.stac2021.mwproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -30,11 +31,7 @@ public class CardViewActivity extends AppCompatActivity {
     TextView viewTitle;
     TextView viewDate;
     TextView viewContent;
-
-    public static String saveStorage = ""; //저장된 파일 경로
-    public static String saveData = ""; //저장된 파일 내용
-
-    private ServiceApi service;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +43,23 @@ public class CardViewActivity extends AppCompatActivity {
         viewDate = findViewById(R.id.details_view_date);
         viewContent = findViewById(R.id.details_view_content);
 
+        Bundle extras = getIntent().getExtras();
+        id = extras.getString("id");
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         //ReadTextFile();
-        File file = new File("http://54.89.236.27:3000/infoContent/test.txt");
+        File file = new File("http://54.89.236.27:3000/infoContent/" + id);
 
         detailsData();
     }
 
     private void detailsData() {
-        service = RetrofitClient.getClient().create(ServiceApi.class);
+        ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
         //Call<List<AllInfoResponse>> call = service.listAllInfo("all");
-        Call<List<InfoListResponse>> call = service.InfoList("1");
+        Call<List<InfoListResponse>> call = service.InfoList(id);
         call.enqueue(new Callback<List<InfoListResponse>>() {
 
             @Override

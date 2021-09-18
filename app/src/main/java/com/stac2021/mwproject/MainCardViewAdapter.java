@@ -16,13 +16,15 @@ import java.util.ArrayList;
 public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<String> img;
     ArrayList<String> title;
+    ArrayList<String> id;
     Context context;
     LinearLayout infoDetails;
 
-    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title) {
+    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id) {
         this.context = context;
         this.img = img;
         this.title = title;
+        this.id = id;
     }
 
     public int getCount() {
@@ -40,7 +42,7 @@ public class MainCardViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ImageView viewImage;
         TextView viewTitle;
 
@@ -63,7 +65,6 @@ public class MainCardViewAdapter extends BaseAdapter {
 
             //서버 url로 이미지 불러오기
             img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
-            //Log.d("myapp", img_path);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
 
         } catch (IndexOutOfBoundsException e) {
@@ -76,16 +77,13 @@ public class MainCardViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CardViewActivity.class);
-                Toast.makeText(v.getContext(), "Position:", Toast.LENGTH_SHORT).show();
+                Log.d("myapp", id.get(i));
+                String setId = id.get(i);
+                intent.putExtra("id", setId);
+                //Toast.makeText(v.getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });
-        //imgv.setImageResource(bitmap);
         return view;
     }
-//
-//    public void setClickListener(allInfo allInfo) {
-//        this.clicklistener = allInfo;
-//
-//    }
 }
