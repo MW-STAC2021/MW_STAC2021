@@ -52,8 +52,8 @@ public class MainCardViewAdapter extends BaseAdapter {
 
         //Log.d("myapp", "getView success");
 
-        viewImage = view.findViewById(R.id.imgCardView);
-        viewTitle = view.findViewById(R.id.titleCardView);
+        viewImage = view.findViewById(R.id.img_card_view);
+        viewTitle = view.findViewById(R.id.title_card_view);
         String img_path = null;
 
         try {
