@@ -10,12 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
-
-import server_userActivity.JoinActivity;
 
 public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<String> img;
@@ -63,8 +59,13 @@ public class MainCardViewAdapter extends BaseAdapter {
         try {
             //title 넣기
             title.get(i);
-            titlev.setText(title.get(i));
-            img_path = img.get(i);
+            viewTitle.setText(title.get(i));
+
+            //서버 url로 이미지 불러오기
+            img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
+            //Log.d("myapp", img_path);
+            Glide.with(view.getContext()).load(img_path).into(viewImage);
+
         } catch (IndexOutOfBoundsException e) {
             Log.d("myapp", String.valueOf(e));
         }
