@@ -17,7 +17,9 @@
         android:layout_height="wrap_content"
         android:hint="이름을 적어주세요."
         android:backgroundTint="#A4A4A4"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:maxLength = "10"/>
 
     <TextView
         android:layout_marginTop="30dp"
@@ -31,6 +33,8 @@
         android:id="@+id/joinId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength = "16"
         android:hint="아이디를 적어주세요."
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />
@@ -47,6 +51,8 @@
         android:id="@+id/joinEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength = "16"
         android:hint="이메일을 적어주세요."
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />
@@ -63,6 +69,8 @@
         android:id="@+id/joinPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength = "16"
         android:hint="비밀번호를 적어주세요."
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />
@@ -70,6 +78,8 @@
         android:id="@+id/joinCheckPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength = "16"
         android:hint="비밀번호 확인"
         android:backgroundTint="#A4A4A4"
         android:layout_marginTop="10dp" />

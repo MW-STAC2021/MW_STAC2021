@@ -53,29 +53,35 @@
         android:textSize="16sp"
         android:backgroundTint="#D0D0D0"/>
     <LinearLayout
+
         android:layout_width="304dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="280dp">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="취소"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:background="@drawable/button_cancel"
+            android:layout_gravity="bottom"
             android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_cancel"
+            android:text="취소"
             android:textColor="#777676"
-            android:layout_weight="1"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
-            android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="완료"
-            android:textSize="18sp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
             android:background="@drawable/button_login"
+            android:text="완료"
             android:textColor="#fff"
-            android:layout_weight="1"/>
+            android:textSize="18sp" />
     </LinearLayout>
 
 

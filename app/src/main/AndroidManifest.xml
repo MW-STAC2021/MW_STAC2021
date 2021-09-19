@@ -23,6 +23,8 @@
         <activity android:name=".CardViewActivity"></activity>
         <activity android:name="server_userActivity.JoinActivity" />
         <activity android:name="server_userActivity.LoginActivity" />
+        <activity android:name="server_userActivity.FindIdActivity" />
+        <activity android:name="server_userActivity.FindPwActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".NoticeActivity" />
         <activity
