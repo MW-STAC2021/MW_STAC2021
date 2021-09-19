@@ -1,8 +1,6 @@
 package com.stac2021.mwproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -92,17 +90,24 @@ public class CardViewActivity extends AppCompatActivity {
 
     private void getTypeImg(String num){
         switch (num) {
+            //여성 - 생리대
             case "00":
                 typeIcon.setImageResource(R.drawable.info_icon00);
+            //여성 - 브래지어
+            case "01":
+                typeIcon.setImageResource(R.drawable.info_icon01);
                 break;
-            case "10":
+            case "10": // 생활 - 음식
                 typeIcon.setImageResource(R.drawable.info_icon10);
                 break;
             case "11":
+            case "12": // 생활 - 청소 / 빨래
                 typeIcon.setImageResource(R.drawable.info_icon11);
                 break;
-            case "12":
-                typeIcon.setImageResource(R.drawable.info_icon12);
+            case "13": // 생활 - 수리 / 고장
+                typeIcon.setImageResource(R.drawable.info_icon13);
+            case "14": // 생활 - 쓰레기
+                typeIcon.setImageResource(R.drawable.info_icon14);
                 break;
         }
     }
