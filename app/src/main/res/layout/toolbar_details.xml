@@ -33,12 +33,12 @@
             android:textStyle="bold" />
         <ImageView
             android:id="@+id/details_type_icon"
-            android:layout_gravity="center"
+            android:layout_gravity="bottom"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/icon"
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
     </LinearLayout>
 
 
