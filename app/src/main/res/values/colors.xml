@@ -5,4 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="unselected_color">#717171</color>
     <color name="white">#ffffff</color>
+    <color name="main_color">#F29F80</color>
+    <color name="scrollbar_color_main">#F29F80</color>
+    <color name="scrollbar_color_gray">#DCDCDC</color>
+
 </resources>

@@ -4,6 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarThumbVertical="@color/scrollbar_color_main"
+    android:scrollbarDefaultDelayBeforeFade="500000"
+    android:background="#ffffff"
     android:fillViewport="true">
 
     <LinearLayout
