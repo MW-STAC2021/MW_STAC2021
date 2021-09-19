@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
     <ImageView
         android:layout_gravity="center_horizontal"
         android:layout_width="146dp"
@@ -17,10 +24,11 @@
         android:id="@+id/loginId"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:hint="아이디"
         android:backgroundTint="#D0D0D0"
-        />
+        android:singleLine="true"
+        android:maxLength = "15"/>
 
     <EditText
         android:layout_gravity="center_horizontal"
@@ -29,6 +37,9 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:backgroundTint="#D0D0D0"
+        android:singleLine="true"
+        android:maxLength = "16"
+        android:inputType="textPassword"
         android:hint="비밀번호" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,11 +72,25 @@
         android:textSize="18sp"
         android:textColor="#fff"
         android:textStyle="bold" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_unlogin"
+        android:layout_marginTop="20dp"
+        android:text="비회원 로그인"
+        android:id="@+id/unLoginBtn"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
         <Button
+            android:id="@+id/btn_find_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00ff0000"
@@ -73,6 +98,7 @@
             android:textSize="14sp"
             android:text="아이디 찾기"/>
         <Button
+            android:id="@+id/btn_find_pw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00ff0000"
@@ -89,10 +115,5 @@
             android:text="회원가입"/>
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/login_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+
 </LinearLayout>

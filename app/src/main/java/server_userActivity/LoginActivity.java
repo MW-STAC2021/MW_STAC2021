@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText viewId;
     private EditText viewPw;
     private Button loginBtn;
+    private Button unLoginBtn;
     private Button intentJoin;
 
     @Override
@@ -50,12 +51,41 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 회원가입 인텐트
         intentJoin = findViewById(R.id.intentJoin);
         intentJoin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
                 startActivity(intent);
+            }
+        });
+        // 아이디 찾기 인텐트
+        intentJoin = findViewById(R.id.btn_find_id);
+        intentJoin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FindIdActivity.class);
+                startActivity(intent);
+            }
+        });
+        // 비밀번호 찾기 인텐트
+        intentJoin = findViewById(R.id.btn_find_pw);
+        intentJoin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FindPwActivity.class);
+                startActivity(intent);
+            }
+        });
+        // 비회원 로그인 인텐트
+        unLoginBtn = findViewById(R.id.unLoginBtn);
+        unLoginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -75,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             focusView = viewPw;
             cancel = true;
         } else if (!isPasswordValid(inputPw)) {
-            viewPw.setError("6자 이상의 비밀번호를 입력해주세요.");
+            viewPw.setError("8자 이상의 비밀번호를 입력해주세요.");
             focusView = viewPw;
             cancel = true;
         }
@@ -98,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
+                Log.d("myqpp", String.valueOf(result));
                 Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
@@ -113,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "로그인 에러 발생", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
                 Log.e("로그인 에러 발생",t.getMessage());
                 t.printStackTrace();
                 showProgress(false);

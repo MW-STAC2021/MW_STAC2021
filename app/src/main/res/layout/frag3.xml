@@ -4,6 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarThumbVertical="@color/scrollbar_color_main"
+    android:scrollbarDefaultDelayBeforeFade="500000"
+    android:background="#ffffff"
     android:fillViewport="true">
 
     <LinearLayout
@@ -14,14 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:verticalSpacing="20dp"
-            android:horizontalSpacing="15dp"
-            android:layout_marginLeft="10dp"
+            android:horizontalSpacing="20dp"
             android:id="@+id/gridView"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
-            android:gravity="center">
-        </com.stac2021.mwproject.ExpandableHeightGridView>
+            android:gravity="center" />
     </LinearLayout>
 </ScrollView>
