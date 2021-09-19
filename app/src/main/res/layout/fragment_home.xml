@@ -23,6 +23,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/icon_search" />
+
             <TextView
                 android:gravity="center_vertical"
                 android:paddingLeft="20dp"
@@ -31,7 +32,7 @@
                 android:layout_height="40dp"
                 android:text="검색어를 입력해주세요"
                 android:id="@+id/textSearch"
-                android:background="#F2F2F2"
+                android:background="@drawable/search_textview_background"
                 android:textSize="17sp"
                 android:textColor="#717171" />
         </LinearLayout>
