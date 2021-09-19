@@ -17,7 +17,7 @@ public class InfoListResponse {
 
     public String getToolBarType() {
         if (infoType.equals("0")) return "여성";
-        else if (infoType.equals("1")) return "통합";
+        else if (infoType.equals("1")) return "생활";
 
         return "0";
     }
