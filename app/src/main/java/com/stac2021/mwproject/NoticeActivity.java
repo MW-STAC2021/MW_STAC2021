@@ -30,7 +30,7 @@ public class NoticeActivity extends AppCompatActivity {
 
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_back);
+        //getSupportActionBar().setHomeAsUpIndicator(true);
         getSupportActionBar().setTitle("공지사항");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
