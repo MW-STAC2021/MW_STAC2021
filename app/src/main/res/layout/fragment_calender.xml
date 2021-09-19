@@ -28,7 +28,6 @@
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#F29F80"
         app:mcv_tileHeight="60dp"
-        app:mcv_selectionMode="none"
         />
 
         <ImageView
