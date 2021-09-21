@@ -10,6 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         >
         <include
             layout="@layout/toolbar_calender"
@@ -28,11 +29,10 @@
         app:mcv_showOtherDates="all"
         app:mcv_selectionColor="#F29F80"
         app:mcv_tileHeight="60dp"
-        app:mcv_selectionMode="none"
         />
 
         <ImageView
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginBottom="30dp"
             android:id="@+id/calendar_description"
             android:layout_width="130dp"
@@ -58,7 +58,7 @@
 
         <Button
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:visibility="gone"
             android:layout_width="130dp"
             android:layout_height="38dp"

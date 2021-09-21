@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:cardElevation="0dp"
         android:layout_weight="1"
@@ -22,14 +22,15 @@
             android:layout_gravity="center"
             android:gravity="center_horizontal">
             <FrameLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/img_card_view"
                     android:layout_marginBottom="10dp"
                     android:layout_width="180dp"
+                    android:scaleType="centerCrop"
                     android:background="@drawable/cardview_round"
-                    android:layout_height="140dp" />
+                    android:layout_height="130dp" />
                 <CheckBox
                     android:layout_marginTop="10dp"
                     android:layout_gravity="right"

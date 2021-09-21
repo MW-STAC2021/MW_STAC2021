@@ -3,16 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".CallFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
+            android:text="법무법인 굳센(24시)"
             android:id="@+id/lawfirmText"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
@@ -20,22 +23,21 @@
             android:maxLines="1"
             android:textSize="16sp"
             android:textColor="#000" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <TextView
+            android:text="02-598-8284"
             android:id="@+id/lawfirmNum"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            android:layout_marginRight="10dp"
             android:textColor="#AAAAAA"/>
 
         <ImageButton
             android:id="@+id/lawfirmCall"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"

@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/home"
+        android:icon="@drawable/home_line"
         android:title="홈" />
 
     <item
         android:id="@+id/navigation_calender"
-        android:icon="@drawable/calender"
+        android:icon="@drawable/icon_calendar_gray"
         android:title="생리주기" />
 
     <item

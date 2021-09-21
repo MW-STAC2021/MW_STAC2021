@@ -56,6 +56,7 @@ public class MainCardViewAdapter extends BaseAdapter {
 
         viewImage = view.findViewById(R.id.img_card_view);
         viewTitle = view.findViewById(R.id.title_card_view);
+        viewImage.setClipToOutline(true);
         String img_path = null;
 
         try {
@@ -66,6 +67,7 @@ public class MainCardViewAdapter extends BaseAdapter {
             //서버 url로 이미지 불러오기
             img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
+
 
         } catch (IndexOutOfBoundsException e) {
             Log.d("myapp", String.valueOf(e));
