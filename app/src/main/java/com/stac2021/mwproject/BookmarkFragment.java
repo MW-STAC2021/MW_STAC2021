@@ -29,15 +29,6 @@ import retrofit2.Response;
 import server_info_data.InfoSearchResponse;
 
 public class BookmarkFragment extends Fragment {
-/*    ListView mList;
-    FavoriteAdapter mAdapter;
-    ArrayList<Favorite> mArray;
-    Favorite mItem;
-
-    String[] itemTitle = {"성장에 좋은 음식", "쌀 보관 방법"};
-    Integer[] itemImage = {R.drawable.thumbnail_milk, R.drawable.thumbnail9};
-    String[] itemCategory = {"생활정보", "생활정보"};*/
-
     Context context;
     String userId;
     TextView noDataText;
@@ -52,13 +43,8 @@ public class BookmarkFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bookmark, container, false);
-/*
-        mList = view.findViewById(R.id.list);
-        mArray = new ArrayList<>();
-        tb = view.findViewById(R.id.toolbar) ;
-        ((AppCompatActivity)getActivity()).setSupportActionBar(tb);*/
+
         service = RetrofitClient.getClient().create(ServiceApi.class);
         context = this.getActivity();
         noDataText = (TextView) view.findViewById(R.id.no_keep);

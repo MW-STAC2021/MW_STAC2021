@@ -35,8 +35,7 @@ public class app extends Application {
         return userInfoItem.name;
     }
 
-    public String getUserId(){
-        Log.d("myapp", userId);
+    public static String getUserId(){
         return userId;
     }
     public static String setUserId(String id){

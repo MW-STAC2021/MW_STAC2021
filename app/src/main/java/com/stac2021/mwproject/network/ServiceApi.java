@@ -8,6 +8,7 @@ import java.util.List;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -49,12 +50,12 @@ public interface ServiceApi {
     Call<List<InfoSearchResponse>> InfoSearch(@Query("keyword") String keyword);
 
     // 즐겨찾기 추가
-    @POST("/keep/{member_seq}/{info_seq}")
-    Call<ResponseBody> insertKeep(@Path("member_seq") int memberSeq, @Path("info_seq") int infoSeq);
+    @POST("/keep/{user_id}/{info_id}")
+    Call<ResponseBody> insertKeep(@Path("user_id") String userId, @Path("info_id") String infoId);
 
     // 즐겨찾기 삭제
-    @POST("/keep/{member_seq}/{info_seq}")
-    Call<String> deleteKeep(@Path("member_seq") int memberSeq, @Path("info_seq") int infoSeq);
+    @DELETE("/keep/{user_id}/{info_id}")
+    Call<String> deleteKeep(@Path("user_id") String userId, @Path("info_id") String infoId);
 
     // 즐겨찾기 페이지
     @GET("/keep/list")
