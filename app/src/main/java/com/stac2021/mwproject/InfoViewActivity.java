@@ -20,9 +20,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import server_info_data.AllInfoResponse;
 import server_info_data.InfoListResponse;
 
-public class CardViewActivity extends AppCompatActivity {
+public class InfoViewActivity extends AppCompatActivity {
 
     TextView typeTitle;
     ImageView typeIcon;
@@ -34,7 +35,7 @@ public class CardViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_view);
+        setContentView(R.layout.activity_info_view);
         typeTitle = findViewById(R.id.details_type_title);
         typeIcon = findViewById(R.id.details_type_icon);
         viewTitle = findViewById(R.id.details_view_title);
@@ -56,7 +57,6 @@ public class CardViewActivity extends AppCompatActivity {
 
     private void detailsData() {
         ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
-        //Call<List<AllInfoResponse>> call = service.listAllInfo("all");
         Call<List<InfoListResponse>> call = service.InfoList(id);
         call.enqueue(new Callback<List<InfoListResponse>>() {
 
@@ -67,15 +67,15 @@ public class CardViewActivity extends AppCompatActivity {
                     Log.d("myapp", "InfoListResponse : " + String.valueOf(result));
                     for (InfoListResponse info : result) {
                         typeTitle.setText(info.getToolBarType());
-                        viewTitle.setText(info.getViewTitle());
+                        viewTitle.setText(info.title);
                         getTypeImg(info.infoTypeIcon);
                         //날짜만 추출
-                        String date = info.getViewPostingTime().substring(0, 10);
+                        String date = info.postingTime.substring(0, 10);
                         Log.d("myapp", "날짜 : " + date);
                         viewDate.setText(date);
 
                         //txt 파일 읽기
-                        String contentPath = "http://54.89.236.27:3000/infoContent/" + info.getViewContentPath();
+                        String contentPath = "http://54.89.236.27:3000/infoContent/" + info.contentPath;
                         getContent(contentPath);
                     }
                 }
