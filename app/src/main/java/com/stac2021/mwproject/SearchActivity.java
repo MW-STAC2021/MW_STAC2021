@@ -28,51 +28,27 @@ import server_info_data.InfoListResponse;
 import server_info_data.InfoSearchResponse;
 
 public class SearchActivity extends AppCompatActivity {
-    ArrayList<String> infoId = new ArrayList<>();
-    ArrayList<String> infoTitle = new ArrayList<>();
-    ArrayList<String> infoThumbNail = new ArrayList<>();
-    ArrayList<String> infoType = new ArrayList<>();
-    ArrayList<String> infoPastingTime = new ArrayList<>();
 
-    ListView mList;
-    FavoriteAdapter mAdapter;
-    ArrayList<Favorite> mArray;
-    Favorite mItem;
-
+    ListView listView;
     ImageButton btnBack;
-
     EditText editSearch;
-
     List<Favorite> list;
 
     private ServiceApi service;
     private FavoriteAdapter adapter;
-    private List<Favorite> userList;
-    private List<Favorite> saveList;//회원검색 기능용 복사본
+    private List<Favorite> infoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        list = new ArrayList<>();
         editSearch = findViewById(R.id.editSearch);
-
         service = RetrofitClient.getClient().create(ServiceApi.class);
-
-        userList = new ArrayList<Favorite>();
-        saveList = new ArrayList<Favorite>();
-        //adapter = new FavoriteAdapter(getApplicationContext(), userList, this, saveList);//로 수정됨
-        //listView.setAdapter(adapter);
-
-
-        mList = findViewById(R.id.list);
-        mArray = new ArrayList<>();
-
-
-        adapter = new FavoriteAdapter(getApplicationContext(), userList, saveList);//로 수정됨
-        mList.setAdapter(adapter);
-
+        infoList = new ArrayList<Favorite>();
+        listView = findViewById(R.id.list);
+        adapter = new FavoriteAdapter(getApplicationContext(), infoList);//로 수정됨
+        listView.setAdapter(adapter);
         btnBack = findViewById(R.id.btnBack);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -95,18 +71,15 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                userList.clear();
                 String text = editSearch.getText().toString();
 
                 search(text);
             }
         });
-
-
     }
 
     public void search(String searchText) {
-        userList.clear();
+        infoList.clear();
         if (searchText.length() != 0) {
             Call<List<InfoSearchResponse>> call = service.InfoSearch(searchText);
             call.enqueue(new Callback<List<InfoSearchResponse>>() {
@@ -116,18 +89,14 @@ public class SearchActivity extends AppCompatActivity {
                         List<InfoSearchResponse> result = response.body();
 
                         for (InfoSearchResponse info : result) {
-                            Log.d("myapp", info.id);
                             Favorite data = new Favorite(
                                     info.thumbnailPath, info.title, info.getToolBarType(), String.valueOf(info.id), false);
-                            userList.add(data);
+                            infoList.add(data);
                         }
-                        Log.d("myapp", "serach - success");
+                        //Log.d("myapp", "serach - success");
                     } else {
                         Log.d("myapp", "serach - else err");
                     }
-                    // 어뎁터 연결
-//                mAdapter = new FavoriteAdapter(getApplicationContext(), infoThumbNail, infoTitle, infoType, infoId);
-//                mList.setAdapter(mAdapter);
                 }
 
                 @Override
@@ -138,6 +107,7 @@ public class SearchActivity extends AppCompatActivity {
                 }
             });
         }
+
         adapter.notifyDataSetChanged();
     }
 }

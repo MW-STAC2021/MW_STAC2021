@@ -4,10 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class InfoListResponse {
     @SerializedName("info_type")
-    public String infoType;
+    public String type;
     @SerializedName("info_type_icon")
     public String infoTypeIcon;
-
     @SerializedName("title")
     public String title;
     @SerializedName("posting_time")
@@ -16,25 +15,9 @@ public class InfoListResponse {
     public String contentPath;
 
     public String getToolBarType() {
-        if (infoType.equals("0")) return "여성";
-        else if (infoType.equals("1")) return "생활";
+        if (type.equals("0")) return "여성";
+        else if (type.equals("1")) return "생활";
 
         return "0";
-    }
-
-    public String getToolBarIcon() {
-        return infoTypeIcon;
-    }
-
-    public String getViewTitle() {
-        return title;
-    }
-
-    public String getViewPostingTime() {
-        return postingTime;
-    }
-
-    public String getViewContentPath() {
-        return contentPath;
     }
 }

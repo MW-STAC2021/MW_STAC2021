@@ -36,13 +36,9 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
 
-    private ServiceApi service;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        service = RetrofitClient.getClient().create(ServiceApi.class);
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);

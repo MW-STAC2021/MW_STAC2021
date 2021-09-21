@@ -15,7 +15,7 @@ public class JoinData {
     @SerializedName("password")
     private String userPw;
 
-    public JoinData(String userName, String userId, String userEmail, String userPwd){
+    public JoinData(String userId, String userName, String userEmail, String userPwd){
         this.userName = userName;
         this.userId = userId;
         this.userEmail = userEmail;
