@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.stac2021.mwproject.ExpandableHeightGridView;
+import com.stac2021.mwproject.Favorite;
 import com.stac2021.mwproject.MainCardViewAdapter;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.network.RetrofitClient;
@@ -35,6 +37,7 @@ public class allInfo extends Fragment {
     ArrayList<String> infoId = new ArrayList<>();
     ArrayList<String> infoTitle = new ArrayList<>();
     ArrayList<String> infoThumbNail = new ArrayList<>();
+    ArrayList<Boolean> infoIsChecked = new ArrayList<>();
 
     ViewFlipper viewFlip;
     ExpandableHeightGridView gridView;
@@ -43,7 +46,7 @@ public class allInfo extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.frag1, container, false);
-
+        Favorite.getInstance().keepList();
         service = RetrofitClient.getClient().create(ServiceApi.class);
         Call<List<AllInfoResponse>> call = service.listAllInfo("all");
         call.enqueue(new Callback<List<AllInfoResponse>>() {
@@ -51,11 +54,12 @@ public class allInfo extends Fragment {
             public void onResponse(Call<List<AllInfoResponse>> call, Response<List<AllInfoResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<AllInfoResponse> result = response.body();
-
                     for (AllInfoResponse info : result) {
                         infoId.add(String.valueOf(info.getId()));
                         infoTitle.add(info.getTitle());
                         infoThumbNail.add(info.getThumbnailPath());
+                        boolean isCheck = Favorite.getInstance().isChecked(String.valueOf(info.getId()));
+                        infoIsChecked.add(isCheck);
                     }
                     Log.d("myapp", "allInfo - success");
                 } else {
@@ -69,7 +73,7 @@ public class allInfo extends Fragment {
 
                 // 카드뷰
                 gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
-                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId);
+                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId, infoIsChecked);
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);
             }
