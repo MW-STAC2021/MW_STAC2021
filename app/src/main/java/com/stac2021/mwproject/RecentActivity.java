@@ -28,7 +28,6 @@ public class RecentActivity extends AppCompatActivity {
 
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_back);
         getSupportActionBar().setTitle("최근 살펴본 정보");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

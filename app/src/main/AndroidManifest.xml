@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CardViewActivity"></activity>
+        <activity android:name=".InfoViewActivity"></activity>
         <activity android:name="server_userActivity.JoinActivity" />
         <activity android:name="server_userActivity.LoginActivity" />
         <activity android:name="server_userActivity.FindIdActivity" />

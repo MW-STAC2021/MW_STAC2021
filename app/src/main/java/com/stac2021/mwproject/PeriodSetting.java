@@ -20,7 +20,6 @@ public class PeriodSetting extends AppCompatActivity {
         setContentView(R.layout.setting_period);
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_back);
         getSupportActionBar().setTitle("월경주기 설정");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

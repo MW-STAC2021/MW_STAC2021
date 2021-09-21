@@ -2,21 +2,21 @@ package server_info_data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class InfoListResponse {
+public class InfoSearchResponse {
     @SerializedName("info_type")
-    public String type;
-    @SerializedName("info_type_icon")
-    public String infoTypeIcon;
+    public String infoType;
     @SerializedName("title")
     public String title;
     @SerializedName("posting_time")
     public String postingTime;
-    @SerializedName("content_path")
-    public String contentPath;
+    @SerializedName("info_id")
+    public String id;
+    @SerializedName("thumbnail_path")
+    public String thumbnailPath;
 
     public String getToolBarType() {
-        if (type.equals("0")) return "여성";
-        else if (type.equals("1")) return "생활";
+        if (infoType.equals("0")) return "여성";
+        else if (infoType.equals("1")) return "생활";
 
         return "0";
     }

@@ -111,6 +111,7 @@ public class JoinActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             startJoin(new JoinData(inputId, inputName, inputEmail, inputPw));
+            Log.d("myapp", inputId + "  " + inputName);
             showProgress(true);
 
         }

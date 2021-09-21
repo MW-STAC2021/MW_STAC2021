@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
@@ -76,7 +76,7 @@ public class MainCardViewAdapter extends BaseAdapter {
         infoDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), CardViewActivity.class);
+                Intent intent = new Intent(v.getContext(), InfoViewActivity.class);
                 Log.d("myapp", id.get(i));
                 String setId = id.get(i);
                 intent.putExtra("id", setId);

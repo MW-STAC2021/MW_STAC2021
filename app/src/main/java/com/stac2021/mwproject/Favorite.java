@@ -1,25 +1,38 @@
 package com.stac2021.mwproject;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.util.Log;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
 
 public class Favorite {
-    Drawable image;
-    String title;
-    String category;
     boolean checked;
 
-    public Favorite(Drawable image, String title, String category, boolean checked) {
-        this.image = image;
+    String image;
+    String title;
+    String id;
+    String type;
+    LinearLayout infoDetails;
+
+    public Favorite(String img, String title, String type, String id, boolean ch) {
+        this.image = img;
         this.title = title;
-        this.category = category;
-        this.checked = checked;
+        this.type = type;
+        this.id = id;
+        this.checked = ch;
+
     }
 
-    public Drawable getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Drawable image) {
+    public String getId() {
+        Log.d("myapp", "id : " + id);
+        return id;  }
+
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -31,12 +44,12 @@ public class Favorite {
         this.title = title;
     }
 
-    public String getCategory() {
-        return category;
+    public String getType() {
+        return type;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setType(String category) {
+        this.type = category;
     }
 
     public boolean isChecked() {

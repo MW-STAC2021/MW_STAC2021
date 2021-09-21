@@ -19,9 +19,9 @@ public class BookmarkFragment extends Fragment {
     ArrayList<Favorite> mArray;
     Favorite mItem;
 
-    String[] itemTitle = {"성장에 좋은 음식"};
-    Integer[] itemImage = {R.drawable.thumbnail_milk};
-    String[] itemCategory = {"생활정보"};
+    String[] itemTitle = {"성장에 좋은 음식", "쌀 보관 방법"};
+    Integer[] itemImage = {R.drawable.thumbnail_milk, R.drawable.thumbnail9};
+    String[] itemCategory = {"생활정보", "생활정보"};
 
     androidx.appcompat.widget.Toolbar tb;
 
@@ -36,11 +36,11 @@ public class BookmarkFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
 
         for(int i=0; i<itemImage.length; i++) {
-            mItem = new Favorite(ContextCompat.getDrawable(getContext(), itemImage[i]), itemTitle[i], itemCategory[i], true);
-            mArray.add(mItem);
+//            mItem = new Favorite(ContextCompat.getDrawable(getContext(), itemImage[i]), itemTitle[i], itemCategory[i], true);
+//            mArray.add(mItem);
         }
-        mAdapter = new FavoriteAdapter(getContext(), mArray);
-        mList.setAdapter(mAdapter);
+//        mAdapter = new FavoriteAdapter(getContext(), mArray);
+//        mList.setAdapter(mAdapter);
 
 
         return view;
