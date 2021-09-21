@@ -29,8 +29,9 @@
             android:textSize="14dp" />
         <EditText
             android:gravity="center"
-            android:layout_width="190dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/period_dialog1"
             android:textSize="14dp"
             android:textColor="#F29F80"
@@ -59,7 +60,8 @@
             android:textSize="14dp" />
         <EditText
             android:gravity="center"
-            android:layout_width="190dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/period_dialog2"
             android:textSize="14dp"

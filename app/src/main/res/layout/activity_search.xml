@@ -33,7 +33,7 @@
             android:layout_height="40dp"
             android:hint="검색어를 입력해주세요"
             android:background="@drawable/search_textview_background"
-            android:textSize="20dp"
+            android:textSize="17sp"
             android:textColor="#000">
             <requestFocus />
         </EditText>

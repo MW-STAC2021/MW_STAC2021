@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#fff"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -9,6 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -19,22 +21,21 @@
                 android:maxLines="1"
                 android:textSize="16sp"
                 android:textColor="#000" />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
 
             <TextView
+                android:gravity="right"
                 android:id="@+id/reportNum"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="#AAAAAA"/>
 
             <ImageButton
                 android:id="@+id/reportCall"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"

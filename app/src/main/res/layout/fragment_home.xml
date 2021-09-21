@@ -7,7 +7,8 @@
     tools:context=".HomeFragment">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff">
         <LinearLayout
             android:orientation="horizontal"
             android:gravity="center_vertical"
@@ -16,7 +17,7 @@
             android:background="#fff"
             android:paddingTop="10dp"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingRight="15dp"
             android:paddingBottom="10dp"
             android:id="@+id/searchView">
             <ImageView

@@ -49,7 +49,7 @@ public class CalenderFragment extends Fragment {
     String period, term;
     ImageView desciption;
     androidx.appcompat.widget.Toolbar tb;
-    List<List<CalendarDay>> periodDates = new ArrayList<>();
+    // List<List<CalendarDay>> periodDates = new ArrayList<>();
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -76,12 +76,12 @@ public class CalenderFragment extends Fragment {
         dlg.setView(dialogView);
 
 
-        for(int i=0; i<periodDates.size(); i++) {
+        /*for(int i=0; i<periodDates.size(); i++) {
             calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), periodDates.get(i)));
             calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), periodDates.get(i).get(0), period, term));
             calendarView.addDecorator(new OvulationDecorator(Color.parseColor("#007BDF"), periodDates.get(i).get(0)));
             calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), periodDates.get(i).get(0), period, term));
-        }
+        }*/
 
 
         period = sp.getString("period", "");
@@ -136,14 +136,16 @@ public class CalenderFragment extends Fragment {
                 btnWritePeriodComplete.setVisibility(View.GONE);
                 btnWritePeriod.setVisibility(View.VISIBLE);
                 final List<CalendarDay> dates = calendarView.getSelectedDates();
-                periodDates.add(dates);
+                String per = sp.getString("period", "");
+                String te = sp.getString("term", "");
+                //periodDates.add(dates);
                 if(dates.size() > 0) {
                     calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), dates));
                     // CalendarDay firstDay = dates.get(0);
                     // Toast.makeText(getContext(), ""+dates.get(0).getMonth(), Toast.LENGTH_SHORT).show();
-                    calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), dates.get(0), period, term));
+                    calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), dates.get(0), per, te));
                     calendarView.addDecorator(new OvulationDecorator(Color.parseColor("#007BDF"), dates.get(0)));
-                    calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), dates.get(0), period, term));
+                    calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), dates.get(0), per, te));
                 }
                 calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_NONE);
                 // Toast.makeText(getContext(), period + term +" " + dates.get(0).getMonth(), Toast.LENGTH_SHORT).show();

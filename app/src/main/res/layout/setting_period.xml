@@ -61,6 +61,7 @@
                     android:layout_marginRight="10dp"/>
                 <EditText
                     android:layout_width="wrap_content"
+                    android:focusable="false"
                     android:layout_height="wrap_content"
                     android:id="@+id/setting_period1"
                     android:textColor="#F29F80"
@@ -90,6 +91,7 @@
                     android:layout_marginRight="10dp"/>
                 <EditText
                     android:layout_width="wrap_content"
+                    android:focusable="false"
                     android:layout_height="wrap_content"
                     android:id="@+id/setting_period2"
                     android:textColor="#F29F80"
