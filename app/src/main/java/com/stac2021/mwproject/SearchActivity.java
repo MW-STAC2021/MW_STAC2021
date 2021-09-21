@@ -29,11 +29,11 @@ import server_info_data.InfoSearchResponse;
 
 public class SearchActivity extends AppCompatActivity {
 
-    ListView listView;
+
     ImageButton btnBack;
     EditText editSearch;
-    List<Favorite> list;
 
+    ListView listView;
     private ServiceApi service;
     private FavoriteAdapter adapter;
     private List<Favorite> infoList;

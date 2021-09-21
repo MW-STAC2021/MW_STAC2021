@@ -13,7 +13,6 @@ public class Favorite {
     String title;
     String id;
     String type;
-    LinearLayout infoDetails;
 
     public Favorite(String img, String title, String type, String id, boolean ch) {
         this.image = img;
