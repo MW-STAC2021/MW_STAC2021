@@ -10,7 +10,7 @@ public class LoginResponse {
     private String message;
 
     @SerializedName("id")
-    private String userId;
+    public String userId;
 
     public int getCode() {
         return code;

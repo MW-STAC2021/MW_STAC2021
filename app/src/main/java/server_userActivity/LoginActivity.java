@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.stac2021.mwproject.MainActivity;
 import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.UserInfoItem;
+import com.stac2021.mwproject.app;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 
@@ -21,6 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import server_user_data.LoginData;
 import server_user_data.LoginResponse;
+import server_user_data.UserInfoResponse;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +35,10 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private Button unLoginBtn;
     private Button intentJoin;
-
+    private TextView myPage;
+    private TextView period;
+    private String userName;
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,12 +135,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse result = response.body();
-                Log.d("myqpp", String.valueOf(result));
                 Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
                 if (result.getCode() == 200) {
                     //로그인 성공 시 메인화면으로 이동
+                    String idid = result.getUserId();
+                    Log.d("myapp", result.getMessage());
+                    userInfoSave(result.getUserId());
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     //액티비티 종료
@@ -157,5 +166,45 @@ public class LoginActivity extends AppCompatActivity {
     }
     private boolean isPasswordValid(String password) {
         return password.length() >= 6;
+    }
+
+    private void userInfoSave(String id){
+        Call<UserInfoResponse> call = service.userInfo(id);
+        call.enqueue(new Callback<UserInfoResponse>() {
+            @Override
+            public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    UserInfoResponse result = response.body();
+                    Log.d("myapp", result.userId);
+                    Log.d("myapp", result.userName);
+                    userId = result.userId;
+                    userName = result.userName;
+                    getUserInfoItem();
+                    app.setUserId(userId);
+                    app.setUserName(userName);
+//                    myPage = findViewById(R.id.my_page_user_name);
+//                    myPage.setText(result.getUserName());
+//                    period = findViewById(R.id.period_user_name);
+//                    period.setText(result.getUserName());
+                    // 텍스트 뷰에 네임 값을 넣으려고 하니 오류 발생
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserInfoResponse> call, Throwable t) {
+                Log.e("myapp", "에러 : " + t.getMessage());
+                Toast.makeText(getApplicationContext(), "사용자 조회 실패", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private UserInfoItem getUserInfoItem(){
+        UserInfoItem item = new UserInfoItem();
+        item.name = userName;
+        item.id  = userId;
+        Log.d("myapp", item.name);
+        Log.d("myapp", item.id);
+        return item;
     }
 }

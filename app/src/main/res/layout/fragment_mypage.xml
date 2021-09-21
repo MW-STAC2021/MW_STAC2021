@@ -29,11 +29,11 @@
                     android:layout_margin="30dp"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/user_name"
+                        android:id="@+id/my_page_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="엄잔"
+                        android:text="비회원"
                         android:textColor="#000000"
                         android:textSize="24dp"
                         android:textStyle="bold"/>
