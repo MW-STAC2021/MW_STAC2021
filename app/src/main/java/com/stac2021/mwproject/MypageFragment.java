@@ -63,6 +63,14 @@ public class MypageFragment extends Fragment {
             }
         });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getContext(), InformationActivity.class);
+                startActivity(in);
+            }
+        });
+
 
         return view;
     }

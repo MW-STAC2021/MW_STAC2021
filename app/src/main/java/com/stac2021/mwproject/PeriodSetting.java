@@ -44,8 +44,8 @@ public class PeriodSetting extends AppCompatActivity {
             public void onClick(View view) {
                 btnEdit.setVisibility(View.GONE);
                 btnComplete.setVisibility(View.VISIBLE);
-                editText1.setFocusable(true);
-                editText2.setFocusable(true);
+                editText1.setFocusableInTouchMode(true);
+                editText2.setFocusableInTouchMode(true);
             }
         });
 
@@ -57,6 +57,8 @@ public class PeriodSetting extends AppCompatActivity {
                 spe.putString("period", editText1.getText().toString());
                 spe.putString("term", editText2.getText().toString());
                 spe.commit();
+                editText1.setFocusableInTouchMode(false);
+                editText2.setFocusableInTouchMode(false);
             }
         });
     }

@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigation_calender"
-        android:icon="@drawable/calender"
+        android:icon="@drawable/icon_calendar_gray"
         android:title="생리주기" />
 
     <item

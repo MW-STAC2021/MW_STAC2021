@@ -49,6 +49,20 @@
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner4" />
+            <ImageView
+                android:id="@+id/banner5"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
+                android:layout_gravity="center"
+                android:scaleType="fitStart"
+                android:src="@drawable/banner5" />
+            <ImageView
+                android:id="@+id/banner6"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
+                android:layout_gravity="center"
+                android:scaleType="fitStart"
+                android:src="@drawable/banner6" />
         </ViewFlipper>
 
         <!--
