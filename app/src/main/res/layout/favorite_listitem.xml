@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
+    android:id="@+id/favorite_info_details"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:paddingBottom="20dp"
@@ -9,9 +10,9 @@
     android:paddingRight="10dp">
     <ImageView
         android:layout_marginLeft="10dp"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:scaleType="fitXY"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:scaleType="centerCrop"
         android:background="@drawable/favorite_round"
         android:id="@+id/favorite_image"/>
     <LinearLayout

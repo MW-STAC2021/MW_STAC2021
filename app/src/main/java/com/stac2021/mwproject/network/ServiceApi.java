@@ -13,28 +13,32 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 import server_info_data.AllInfoResponse;
 import server_info_data.InfoListResponse;
+import server_info_data.InfoSearchResponse;
 import server_user_data.JoinData;
 import server_user_data.JoinResponse;
 import server_user_data.LoginData;
 import server_user_data.LoginResponse;
 
 public interface ServiceApi {
+    //로그인
     @POST("/user/login")
     Call<LoginResponse> userLogin(@Body LoginData data);
 
+    // 회원가입
     @POST("/user/join")
     Call<JoinResponse> userJoin(@Body JoinData data);
 
-    @FormUrlEncoded
-    @POST("/post/list")
-    Call<ResponseBody> postList(@Field("data") String data);
-
-    //메인 화면 리스트 [ 필요 데이터 : 프라이머리 키 id(다시 아이디 부여해도 되는지 모르겠음), 제목, 썸네일 ]
+    // 메인 화면 리스트 [ 필요 데이터 : 프라이머리 키 id(다시 아이디 부여해도 되는지 모르겠음), 제목, 썸네일 ]
     @GET("/info/infoList/{type}")
     Call<List<AllInfoResponse>> listAllInfo(@Path("type") String type);
 
+    // 정보 데이터
     @GET("/info/list/{id}")
     Call<List<InfoListResponse>> InfoList(@Path("id") String id);
+
+    // 검색
+    @GET("/info/search")
+    Call<List<InfoSearchResponse>> InfoSearch(@Query("keyword") String keyword);
 }
 /* bgt6
     @SerializedName("info_id") public int infoId;
