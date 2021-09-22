@@ -73,7 +73,7 @@ public class MypageFragment extends Fragment {
                             itemTitle.add(info.title);
                             itemId.add(info.id);
                         }
-                        adapter = new MypageCardViewAdapter(itemId, itemImage, itemTitle);
+                        adapter = new MypageCardViewAdapter(itemId, itemImage, itemTitle, getContext());
                         recyclerView.setAdapter(adapter);
                     }
                 }

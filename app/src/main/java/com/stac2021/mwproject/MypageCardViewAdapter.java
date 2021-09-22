@@ -37,12 +37,14 @@ public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAd
             // 뷰 객체에 대한 참조. (hold strong reference)
             img = itemView.findViewById(R.id.mypage_img);
             title = itemView.findViewById(R.id.mypage_title);
+            infoDetails = itemView.findViewById(R.id.info_details);
         }
     }
-    public MypageCardViewAdapter(ArrayList<String> id, ArrayList<String> img, ArrayList<String> title) {
+    public MypageCardViewAdapter(ArrayList<String> id, ArrayList<String> img, ArrayList<String> title, Context context) {
         this.id = id;
         this.img_arr = img;
         this.title_arr = title;
+        this.context = context;
     }
 
     @NonNull
@@ -53,33 +55,38 @@ public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAd
 
         View view = inflater.inflate(R.layout.item_mypage_cardview, parent, false) ;
         MypageCardViewAdapter.ViewHolder vh = new MypageCardViewAdapter.ViewHolder(view) ;
-        infoDetails = parent.findViewById(R.id.info_details);
+
 
 
         return vh ;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MypageCardViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MypageCardViewAdapter.ViewHolder holder, final int position) {
+        holder.itemView.setTag(position); //커스텀 리스트 뷰의 각각의 리스트를 의미
         String img_path = "http://54.89.236.27:3000/infoThumbnail/" + img_arr.get(position);
         Log.d("myapp", img_path);
         Glide.with(holder.itemView.getContext())
                 .load(img_path)
                 .into(holder.img);
         holder.title.setText(title_arr.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), InfoViewActivity.class);
+                Log.d("myapp", id.get(position));
+                Log.d("myapp", "온클릭");
+                String setId = id.get(position);
+                intent.putExtra("id", setId);
+                //Toast.makeText(v.getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
+
+            }
+
+        });
 
 
-//        infoDetails.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), InfoViewActivity.class);
-//                Log.d("myapp", id.get(position));
-//                String setId = id.get(position);
-//                intent.putExtra("id", setId);
-//                //Toast.makeText(v.getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
-//                context.startActivity(intent);
-//            }
-//        });
+
     }
 
     @Override
