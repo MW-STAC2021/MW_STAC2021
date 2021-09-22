@@ -13,7 +13,7 @@ public class FindPwActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_findpassword);
+        setContentView(R.layout.activity_find_password);
 
         btnCancel = findViewById(R.id.btnCancel);
         btnComplete = findViewById(R.id.btnComplete);

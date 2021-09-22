@@ -1,16 +1,13 @@
 package com.stac2021.mwproject;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAdapter.ViewHolder> {
@@ -39,7 +36,7 @@ public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAd
         Context context = parent.getContext() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
-        View view = inflater.inflate(R.layout.mypage_recent_cardview, parent, false) ;
+        View view = inflater.inflate(R.layout.item_mypage_cardview, parent, false) ;
         MypageCardViewAdapter.ViewHolder vh = new MypageCardViewAdapter.ViewHolder(view) ;
 
         return vh ;

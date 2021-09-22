@@ -60,7 +60,7 @@ public class MainCardViewAdapter extends BaseAdapter {
         TextView viewType;
 
         if (view == null) {
-            view = View.inflate(viewGroup.getContext(), R.layout.cardview_item, null);
+            view = View.inflate(viewGroup.getContext(), R.layout.item_cardview, null);
         }
 
         final Context context = viewGroup.getContext();

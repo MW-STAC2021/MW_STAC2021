@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class NoticeAdapter extends BaseAdapter {
@@ -37,7 +35,7 @@ public class NoticeAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(view == null) {
-            view = View.inflate(mContext, R.layout.noticelistitem, null);
+            view = View.inflate(mContext, R.layout.item_notice_list, null);
 
         }
         TextView title = view.findViewById(R.id.noticeTitle);

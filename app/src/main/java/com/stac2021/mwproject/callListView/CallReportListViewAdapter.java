@@ -41,7 +41,7 @@ public class CallReportListViewAdapter extends BaseAdapter {
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.fragment_call_report_item, viewGroup, false);
+            view = inflater.inflate(R.layout.fragment_call_item, viewGroup, false);
         }
 
         reportText = (TextView) view.findViewById(R.id.reportText);

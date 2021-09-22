@@ -36,12 +36,12 @@ public class CallLawfirmListViewAdapter extends BaseAdapter {
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.fragment_call_report_item, viewGroup, false);
+            view = inflater.inflate(R.layout.fragment_call_item, viewGroup, false);
         }
 
-        lawfirmText = (TextView) view.findViewById(R.id.lawfirmText);
-        lawfirmNum = (TextView) view.findViewById(R.id.lawfirmNum);
-        lawfirmCall = (ImageButton) view.findViewById(R.id.lawfirmCall);
+        lawfirmText = (TextView) view.findViewById(R.id.reportText);
+        lawfirmNum = (TextView) view.findViewById(R.id.reportNum);
+        lawfirmCall = (ImageButton) view.findViewById(R.id.reportCall);
 
 
         final CallLawfirmListViewItem listViewItem = lawfirmListViewItemList.get(i);

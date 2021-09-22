@@ -26,8 +26,13 @@ public class PregnantPossibleDecorator implements DayViewDecorator {
     public boolean shouldDecorate(CalendarDay day) {
         int target = this.day.getDate().getDayOfMonth() + 16;
         if(target > month[this.day.getMonth()-1]) {
-            return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - 4)|| (day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth()-1]
-            && day.getDate().getDayOfMonth() >= target - month[this.day.getMonth()-1] - 4);
+            if(this.day.getMonth() + 1 > 12) {
+                return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - 4) || (day.getYear() == this.day.getYear() + 1 && day.getMonth() == (this.day.getMonth() + 1)%12 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth() - 1]
+                        && day.getDate().getDayOfMonth() >= target - month[this.day.getMonth() - 1] - 4);
+            }else {
+                return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - 4) || (day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth() - 1]
+                        && day.getDate().getDayOfMonth() >= target - month[this.day.getMonth() - 1] - 4);
+            }
         }
         else {
             return this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() <= target && day.getDate().getDayOfMonth() >= target -4;
