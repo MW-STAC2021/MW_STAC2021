@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.stac2021.mwproject.InformationActivity;
+import com.stac2021.mwproject.MypageCardViewAdapter;
+import com.stac2021.mwproject.NoticeActivity;
+import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.RecentActivity;
 
 public class MypageFragment extends Fragment {
 

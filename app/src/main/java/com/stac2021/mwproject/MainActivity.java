@@ -3,6 +3,12 @@ package com.stac2021.mwproject;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.stac2021.mwproject.fragment.BookmarkFragment;
+import com.stac2021.mwproject.fragment.CalenderFragment;
+import com.stac2021.mwproject.fragment.CallFragment;
+import com.stac2021.mwproject.fragment.HomeFragment;
+import com.stac2021.mwproject.fragment.MypageFragment;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 

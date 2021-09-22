@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/mypage_img"
                 android:layout_width="match_parent"
-                android:background="@drawable/cardview_round"
+                android:background="@drawable/background_cardview_round"
                 android:layout_height="62dp"
                 android:layout_weight="2.5" />
 

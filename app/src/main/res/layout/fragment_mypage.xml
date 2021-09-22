@@ -6,7 +6,7 @@
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#ffffff"
-    tools:context=".MypageFragment">
+    tools:context=".fragment.MypageFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="20dp"
-                        android:background="@drawable/mypage_recent"
+                        android:background="@drawable/background_mypage_recent"
                         android:layout_marginBottom="20dp">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
-                                android:src="@drawable/clock"
+                                android:src="@drawable/icon_clock"
                                 android:layout_marginRight="10dp"/>
                             <Button
                                 android:id="@+id/btnRecent"
@@ -104,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:backgroundTint="#ffffff"
-                        android:background="@drawable/button_shape"
+                        android:background="@drawable/background_button"
                         android:drawableLeft="@drawable/mypage_button1"
                         android:paddingLeft="20dp"
                         android:drawablePadding="27dp"
@@ -124,7 +124,7 @@
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:backgroundTint="#ffffff"
-                        android:background="@drawable/button_shape"
+                        android:background="@drawable/background_button"
                         android:drawableLeft="@drawable/mypage_button2"
                         android:paddingLeft="20dp"
                         android:drawablePadding="27dp"
@@ -185,7 +185,7 @@
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
                         android:backgroundTint="#ffffff"
-                        android:background="@drawable/button_shape"
+                        android:background="@drawable/background_button"
                         android:drawableLeft="@drawable/mypage_button4"
                         android:paddingLeft="20dp"
                         android:drawablePadding="27dp"
@@ -204,7 +204,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:backgroundTint="#ffffff"
-                        android:background="@drawable/button_shape"
+                        android:background="@drawable/background_button"
                         android:drawableLeft="@drawable/mypage_button5"
                         android:paddingLeft="18dp"
                         android:drawablePadding="22dp"

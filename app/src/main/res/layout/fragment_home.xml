@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    tools:context=".fragment.HomeFragment">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="검색어를 입력해주세요"
-                android:background="@drawable/search_textview_background"
+                android:background="@drawable/background_search_textview"
                 android:textSize="17sp"
                 android:textColor="#717171">
             </TextView>
