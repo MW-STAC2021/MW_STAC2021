@@ -1,5 +1,6 @@
 package com.stac2021.mwproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,23 +9,35 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.stac2021.mwproject.network.RetrofitClient;
+import com.stac2021.mwproject.network.ServiceApi;
+import com.stac2021.mwproject.other_data.KeepResponse;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MypageFragment extends Fragment {
 
     androidx.appcompat.widget.Toolbar tb;
     RecyclerView recyclerView;
     MypageCardViewAdapter adapter;
-    String[] itemTitle = {"생리대 사이즈 종류", "쓰레기 분리수거 하는법", "세탁기 돌리는 방법", "전구 갈아끼우는 방법", "생리 용퓸 종류들을 알려줄게!", "피임약 복용 방법을 알려줄게!",
-            "월경 주기 계산 방법을 알려줄게!", "생리대 사용 방법을 알려줄게!", "생리컵 사용 방법을 알려줄게"};
-    Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
+    private List<Favorite> infoList = new ArrayList<>();
+    ArrayList<String> itemImage = new ArrayList<>();
+    ArrayList<String> itemTitle = new ArrayList<>();
+    ArrayList<String> itemId = new ArrayList<>();
     Button btnRecent;
-
+    Context context;
     Button btn1, btn2, btn3, btn4, btn5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,11 +46,38 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
         tb = view.findViewById(R.id.toolbar) ;
+        String userId = ((app)getActivity().getApplication()).getUserId();
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        adapter = new MypageCardViewAdapter(itemImage, itemTitle);
-        recyclerView.setAdapter(adapter);
+
+        ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
+        Call<List<KeepResponse>> call = service.KeepList(userId);
+        call.enqueue(new Callback<List<KeepResponse>>() {
+            @Override
+            public void onResponse(Call<List<KeepResponse>> call, Response<List<KeepResponse>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<KeepResponse> result = response.body();
+                    if(result.size() != 0){
+                        for (KeepResponse info : result) {
+                            itemImage.add(info.thumbnailPath);
+                            itemTitle.add(info.title);
+                            itemId.add(info.id);
+                        }
+                        adapter = new MypageCardViewAdapter(itemId, itemImage, itemTitle);
+                        recyclerView.setAdapter(adapter);
+                    }
+                }
+                else{
+                    Log.d("myapp", "bookMark - else err");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<KeepResponse>> call, Throwable t) {
+                Toast.makeText(context, "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         btnRecent = view.findViewById(R.id.btnRecent);
 
@@ -73,5 +113,9 @@ public class MypageFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void recentlyData(String userId){
+
     }
 }

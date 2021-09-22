@@ -79,7 +79,8 @@
                                 android:stateListAnimator="@null"
                                 android:textSize="14sp"
                                 android:textColor="#A8A8A8"/>
-                        </LinearLayout>
+
+                            </LinearLayout>
 
                         <androidx.core.widget.NestedScrollView
                             android:id="@+id/ScrollView1"

@@ -1,13 +1,9 @@
 package com.stac2021.mwproject;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.stac2021.mwproject.keep_data.KeepResponse;
+import com.stac2021.mwproject.other_data.KeepResponse;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 
@@ -46,7 +42,10 @@ public class Favorite {
 
     public Favorite() {
     }
-
+    public Favorite(String img, String title) {
+        this.image = img;
+        this.title = title;
+    }
     public Favorite(String img, String title, String type, String id, boolean ch) {
         this.image = img;
         this.title = title;
