@@ -37,7 +37,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="44dp"
                     android:gravity="center"
-                    android:text="뫄뫄뫄뫄"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -47,7 +46,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
-                    android:text="1010/1010/10"
                     android:textSize="10sp"
                     tools:ignore="SmallSp" />
 
@@ -62,7 +60,6 @@
                         android:id="@+id/details_view_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="context"
                         android:textColor="#495057"
                         android:textSize="16sp" />
 
@@ -71,8 +68,7 @@
                         android:layout_marginTop="40dp"
                         android:scaleType="fitStart"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/thumbnail9" />
+                        android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>
