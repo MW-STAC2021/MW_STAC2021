@@ -27,7 +27,11 @@ public class NextPeriodDecorator implements DayViewDecorator {
     public boolean shouldDecorate(CalendarDay day) {
         int target = this.day.getDate().getDayOfMonth() + period + term;
         if(target > month[this.day.getMonth()-1]) {
-            return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - term)|| (day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth()-1]
+            if(this.day.getMonth() + 1 > 12) {
+                return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - term)|| (day.getYear() == this.day.getYear() + 1 && day.getMonth() == (this.day.getMonth() + 1)%12 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth()-1]
+                        && day.getDate().getDayOfMonth() >= target - month[this.day.getMonth()-1] - term);
+            }
+            else return (this.day.getMonth() == day.getMonth() && day.getDate().getDayOfMonth() >= target - term)|| (day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() <= target - month[this.day.getMonth()-1]
                     && day.getDate().getDayOfMonth() >= target - month[this.day.getMonth()-1] - term);
         }
         else {

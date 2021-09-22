@@ -25,7 +25,10 @@ public class OvulationDecorator implements DayViewDecorator {
     public boolean shouldDecorate(CalendarDay day) {
         int target = this.day.getDate().getDayOfMonth() + 14;
         if(target > month[this.day.getMonth()-1]) {
-            return day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() == target - month[this.day.getMonth()-1];
+            if(this.day.getMonth() + 1 > 12) {
+                return day.getYear() == this.day.getYear() + 1 && day.getMonth() == (this.day.getMonth() + 1)%12 && day.getDate().getDayOfMonth() == target - month[this.day.getMonth()-1];
+            }
+            else return day.getMonth() == this.day.getMonth() + 1 && day.getDate().getDayOfMonth() == target - month[this.day.getMonth()-1];
         }
         else return day.getMonth() == this.day.getMonth() && target == day.getDate().getDayOfMonth();
     }
