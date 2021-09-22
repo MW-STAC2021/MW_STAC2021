@@ -51,7 +51,7 @@ public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAd
         Context context = parent.getContext() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
-        View view = inflater.inflate(R.layout.mypage_recent_cardview, parent, false) ;
+        View view = inflater.inflate(R.layout.item_mypage_cardview, parent, false) ;
         MypageCardViewAdapter.ViewHolder vh = new MypageCardViewAdapter.ViewHolder(view) ;
         infoDetails = parent.findViewById(R.id.info_details);
 

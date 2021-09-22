@@ -21,6 +21,7 @@ public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<Boolean> checking;
     Context context;
     LinearLayout infoDetails;
+    ArrayList<String> infoType = new ArrayList<>();
 
     public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking) {
         this.context = context;
@@ -29,7 +30,14 @@ public class MainCardViewAdapter extends BaseAdapter {
         this.id = id;
         this.checking = checking;
     }
-
+    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking, ArrayList<String> infoType) {
+        this.context = context;
+        this.img = img;
+        this.title = title;
+        this.id = id;
+        this.checking = checking;
+        this.infoType = infoType;
+    }
     public int getCount() {
         //return img.length;
         //Log.d("myapp", "img.size() : " + img.size());
@@ -50,7 +58,7 @@ public class MainCardViewAdapter extends BaseAdapter {
         TextView viewTitle;
 
         if (view == null) {
-            view = View.inflate(viewGroup.getContext(), R.layout.cardview_item, null);
+            view = View.inflate(viewGroup.getContext(), R.layout.item_cardview, null);
         }
 
         final Context context = viewGroup.getContext();

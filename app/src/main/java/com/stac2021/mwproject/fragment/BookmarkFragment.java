@@ -24,7 +24,7 @@ import com.stac2021.mwproject.Favorite;
 import com.stac2021.mwproject.FavoriteAdapter;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.app;
-import com.stac2021.mwproject.keep_data.KeepResponse;
+import com.stac2021.mwproject.other_data.KeepResponse;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 

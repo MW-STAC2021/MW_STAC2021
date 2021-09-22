@@ -33,7 +33,7 @@ public class RecentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mypage_recent_layout);
+        setContentView(R.layout.activity_mypage_recent);
         ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
 
         Call<List<RecentlyResponse>> call = service.RecentlyList("all");
@@ -74,7 +74,6 @@ public class RecentActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-    public boolean onCreateOptionsMenu(Menu menu) { getMenuInflater().inflate(R.menu.menu_periodsetting, menu); return true; }
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {

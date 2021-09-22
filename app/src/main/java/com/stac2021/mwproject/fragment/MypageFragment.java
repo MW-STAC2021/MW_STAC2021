@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.stac2021.mwproject.Favorite;
+import com.stac2021.mwproject.InformationActivity;
+import com.stac2021.mwproject.MypageCardViewAdapter;
+import com.stac2021.mwproject.NoticeActivity;
+import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.RecentActivity;
+import com.stac2021.mwproject.app;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 import com.stac2021.mwproject.other_data.KeepResponse;
