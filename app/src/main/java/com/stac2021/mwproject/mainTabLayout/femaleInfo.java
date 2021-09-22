@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.stac2021.mwproject.ExpandableHeightGridView;
+import com.stac2021.mwproject.Favorite;
 import com.stac2021.mwproject.MainCardViewAdapter;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.network.RetrofitClient;
@@ -33,6 +34,7 @@ public class femaleInfo extends Fragment {
     ArrayList<String> infoId = new ArrayList<>();
     ArrayList<String> infoTitle = new ArrayList<>();
     ArrayList<String> infoThumbNail = new ArrayList<>();
+    ArrayList<Boolean> infoIsChecked = new ArrayList<>();
 
     ExpandableHeightGridView gridView;
     MainCardViewAdapter adapter;
@@ -53,6 +55,8 @@ public class femaleInfo extends Fragment {
                         infoId.add(String.valueOf(info.getId()));
                         infoTitle.add(info.getTitle());
                         infoThumbNail.add(info.getThumbnailPath());
+                        boolean isCheck = Favorite.getInstance().isChecked(String.valueOf(info.getId()));
+                        infoIsChecked.add(isCheck);
                     }
                     Log.d("myapp", "allInfo - success");
                 } else {
@@ -61,7 +65,7 @@ public class femaleInfo extends Fragment {
 
                 // 카드뷰
                 gridView = (ExpandableHeightGridView) (v.findViewById(R.id.gridView));
-                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId);
+                adapter = new MainCardViewAdapter(getContext(), infoThumbNail, infoTitle, infoId, infoIsChecked);
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);
             }

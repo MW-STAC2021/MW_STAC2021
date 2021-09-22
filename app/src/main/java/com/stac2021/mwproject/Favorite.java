@@ -73,7 +73,7 @@ public class Favorite {
         return type;
     }
 
-    public boolean isChecked() {
+    public boolean isChecked(String s) {
         return checked;
     }
 

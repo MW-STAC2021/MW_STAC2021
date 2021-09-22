@@ -69,7 +69,6 @@ public class MainCardViewAdapter extends BaseAdapter {
 
         viewImage = view.findViewById(R.id.img_card_view);
         viewTitle = view.findViewById(R.id.title_card_view);
-        viewImage.setClipToOutline(true);
         viewType = view.findViewById(R.id.type_card_view);
         final CheckBox checked = view.findViewById(R.id.card_view_check);
         String img_path = null;
