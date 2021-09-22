@@ -93,7 +93,7 @@ public class SearchActivity extends AppCompatActivity {
                                     info.thumbnailPath, info.title, info.getToolBarType(), String.valueOf(info.id), false);
                             infoList.add(data);
                         }
-                        //Log.d("myapp", "serach - success");
+                        Log.d("myapp", "serach - success");
                     } else {
                         Log.d("myapp", "serach - else err");
                     }
@@ -101,7 +101,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<InfoSearchResponse>> call, Throwable t) {
-                    Log.d("myapp", "allInfo - Failure error");
+                    Log.d("myapp", "search - Failure error");
                     Log.e("myapp", "에러 : " + t.getMessage());
                     Toast.makeText(getApplicationContext(), "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
                 }

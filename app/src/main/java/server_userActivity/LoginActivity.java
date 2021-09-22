@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText viewId;
     private EditText viewPw;
     private Button loginBtn;
-    private Button unLoginBtn;
     private Button intentJoin;
     private TextView myPage;
     private TextView period;
@@ -87,16 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // 비회원 로그인 인텐트
-        unLoginBtn = findViewById(R.id.unLoginBtn);
-        unLoginBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
     }
     private void attemptLogin(){
         viewId.setError(null);
