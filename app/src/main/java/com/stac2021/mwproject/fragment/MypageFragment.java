@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.stac2021.mwproject.Favorite;
@@ -45,7 +46,8 @@ public class MypageFragment extends Fragment {
     ArrayList<String> itemId = new ArrayList<>();
     Button btnRecent;
     Context context;
-    Button btn1, btn2, btn3, btn4, btn5;
+    Button btn1, btn2,  btn4, btn5;
+    LinearLayout btn3;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
