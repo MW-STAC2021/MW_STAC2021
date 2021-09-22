@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MypageFragment extends Fragment {
 
@@ -25,7 +26,10 @@ public class MypageFragment extends Fragment {
     Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
     Button btnRecent;
 
-    Button btn1, btn2, btn3, btn4, btn5;
+    Button btn1, btn2, btn4, btn5;
+
+    TextView toolbar_title;
+    ImageView toolbar_icon;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,9 +47,15 @@ public class MypageFragment extends Fragment {
 
         btn1 = view.findViewById(R.id.mypage_btn1);
         btn2 = view.findViewById(R.id.mypage_btn2);
-        btn3 = view.findViewById(R.id.mypage_btn3);
+
         btn4 = view.findViewById(R.id.mypage_btn4);
         btn5 = view.findViewById(R.id.mypage_btn5);
+
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("마이페이지");
+        toolbar_icon.setImageResource(R.drawable.icon_mypage);
 
         btnRecent.setOnClickListener(new View.OnClickListener() {
             @Override

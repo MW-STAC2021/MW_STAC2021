@@ -22,16 +22,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.stac2021.mwproject.CalendarDecorator.NextPeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.OvulationDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PregnantPossibleDecorator;
+
 import androidx.appcompat.app.AppCompatActivity;
+import java.lang.reflect.Type;
 
 
 import java.util.ArrayList;
@@ -49,7 +54,13 @@ public class CalenderFragment extends Fragment {
     String period, term;
     ImageView desciption;
     androidx.appcompat.widget.Toolbar tb;
-    // List<List<CalendarDay>> periodDates = new ArrayList<>();
+    Gson gson;
+    List<List<CalendarDay>> userDates = new ArrayList<>();
+    String json;
+    Type type;
+
+    TextView toolbar_title;
+    ImageView toolbar_icon;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -62,6 +73,12 @@ public class CalenderFragment extends Fragment {
         tb = view.findViewById(R.id.toolbar) ;
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
 
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("월경주기");
+        toolbar_icon.setImageResource(R.drawable.icon_calender);
+
         calendarView = view.findViewById(R.id.calendarView);
         btnWritePeriod = view.findViewById(R.id.writePeriod);
         btnWritePeriodComplete = view.findViewById(R.id.writePeriodComplete);
@@ -69,7 +86,7 @@ public class CalenderFragment extends Fragment {
         sp = getActivity().getSharedPreferences("pref", 0);
         spe = sp.edit();
         ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
-
+        gson = new GsonBuilder().create();
 
         View dialogView = View.inflate(getContext(), R.layout.dialog_period, null);
         final AlertDialog dlg = new AlertDialog.Builder(getContext()).create();
@@ -118,6 +135,11 @@ public class CalenderFragment extends Fragment {
             dlg.show();
         }
 
+
+        readUserDates();
+
+
+
         btnWritePeriod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,18 +157,24 @@ public class CalenderFragment extends Fragment {
             public void onClick(View view) {
                 btnWritePeriodComplete.setVisibility(View.GONE);
                 btnWritePeriod.setVisibility(View.VISIBLE);
-                final List<CalendarDay> dates = calendarView.getSelectedDates();
                 String per = sp.getString("period", "");
                 String te = sp.getString("term", "");
-                //periodDates.add(dates);
-                if(dates.size() > 0) {
-                    calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), dates));
-                    // CalendarDay firstDay = dates.get(0);
-                    // Toast.makeText(getContext(), ""+dates.get(0).getMonth(), Toast.LENGTH_SHORT).show();
-                    calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), dates.get(0), per, te));
-                    calendarView.addDecorator(new OvulationDecorator(Color.parseColor("#007BDF"), dates.get(0)));
-                    calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), dates.get(0), per, te));
+                if(!per.equals("") && !te.equals("")) {
+                    List<CalendarDay> dates = calendarView.getSelectedDates();
+                    //periodDates.add(dates);
+                    if(dates.size() > 0) {
+                        calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), dates));
+                        calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), dates.get(0), per, te));
+                        calendarView.addDecorator(new OvulationDecorator(Color.parseColor("#007BDF"), dates.get(0)));
+                        calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), dates.get(0), per, te));
+                        addUserDates(dates);
+                    }
+
                 }
+                else {
+                    Toast.makeText(getContext(), "월경 주기와 기간을 먼저 설정해주세요.", Toast.LENGTH_SHORT).show();
+                }
+
                 calendarView.setSelectionMode(MaterialCalendarView.SELECTION_MODE_NONE);
                 // Toast.makeText(getContext(), period + term +" " + dates.get(0).getMonth(), Toast.LENGTH_SHORT).show();
                 desciption.setVisibility(View.VISIBLE);
@@ -173,5 +201,44 @@ public class CalenderFragment extends Fragment {
 
         }
         return false;
+    }
+
+    public void readUserDates() {
+        gson = new Gson();
+        json = sp.getString("userDates", "");
+        type = new TypeToken<List<List<CalendarDay>>>() {}.getType();
+        List<List<CalendarDay>> arrayList = gson.fromJson(json, type);
+        String per = sp.getString("period", "");
+        String te = sp.getString("term", "");
+        if(arrayList != null) {
+            if (arrayList.size() > 0) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), arrayList.get(i)));
+                    calendarView.addDecorator(new PregnantPossibleDecorator(Color.parseColor("#98D1FF"), arrayList.get(i).get(0), per, te));
+                    calendarView.addDecorator(new OvulationDecorator(Color.parseColor("#007BDF"), arrayList.get(i).get(0)));
+                    calendarView.addDecorator(new NextPeriodDecorator(Color.parseColor("#FFC2AB"), arrayList.get(i).get(0), per, te));
+                }
+            }
+            //Log.d("달력", "gson not null" + arrayList.toString());
+        }
+        else {
+            //Log.d("달력", "gson null");
+        }
+        //Log.d("달력", "gson 읽음");
+    }
+
+    public void addUserDates(List<CalendarDay> dates) {
+        gson = new Gson();
+        json = sp.getString("userDates", "");
+        type = new TypeToken<List<List<CalendarDay>>>() {}.getType();
+        List<List<CalendarDay>> arrayList = gson.fromJson(json, type);
+        if(arrayList == null) {
+            arrayList = new ArrayList<List<CalendarDay>>();
+        }
+        arrayList.add(dates);
+        json = gson.toJson(arrayList);
+        spe.putString("userDates", json);
+        spe.commit();
+        //Log.d("달력", "gson 추가");
     }
 }

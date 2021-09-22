@@ -27,7 +27,7 @@
                 <ImageView
                     android:id="@+id/img_card_view"
                     android:layout_marginBottom="10dp"
-                    android:layout_width="180dp"
+                    android:layout_width="match_parent"
                     android:scaleType="centerCrop"
                     android:background="@drawable/cardview_round"
                     android:layout_height="130dp" />

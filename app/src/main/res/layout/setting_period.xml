@@ -5,16 +5,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:elevation="2dp"
-            app:titleTextColor="#717171"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <include
+            layout="@layout/toolbar_base"
+            android:id="@+id/toolbar" />
         <LinearLayout
             android:layout_below="@+id/toolbar"
             android:layout_marginTop="30dp"
@@ -61,6 +54,7 @@
                     android:textColor="#424242"
                     android:layout_marginRight="10dp"/>
                 <EditText
+                    android:inputType="numberDecimal"
                     android:layout_width="wrap_content"
                     android:focusable="false"
                     android:layout_height="wrap_content"
@@ -91,6 +85,7 @@
                     android:textColor="#424242"
                     android:layout_marginRight="10dp"/>
                 <EditText
+                    android:inputType="numberDecimal"
                     android:layout_width="wrap_content"
                     android:focusable="false"
                     android:layout_height="wrap_content"

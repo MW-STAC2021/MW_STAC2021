@@ -16,26 +16,30 @@
             android:layout_height="wrap_content"
             android:background="#fff"
             android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
             android:paddingBottom="10dp"
             android:id="@+id/searchView">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_margin="5dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:background="#fff"
+                android:id="@+id/btnBack"
                 android:src="@drawable/icon_search" />
-
             <TextView
                 android:gravity="center_vertical"
+                android:id="@+id/textSearch"
                 android:paddingLeft="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="검색어를 입력해주세요"
-                android:id="@+id/textSearch"
                 android:background="@drawable/search_textview_background"
                 android:textSize="17sp"
-                android:textColor="#717171" />
+                android:textColor="#717171">
+            </TextView>
         </LinearLayout>
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"

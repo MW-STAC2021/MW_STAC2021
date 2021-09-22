@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.stac2021.mwproject.callListView.CallReportListViewAdapter;
 
@@ -21,6 +23,9 @@ public class CallFragment extends Fragment {
     //lawfirm list view
     private ListView lawfirmListView;
     private CallReportListViewAdapter lawfirmAdpater;
+
+    TextView toolbar_title;
+    ImageView toolbar_icon;
 
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = (ListAdapter) listView.getAdapter();
@@ -42,6 +47,12 @@ public class CallFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_call_list, container, false);
+
+        toolbar_title = v.findViewById(R.id.toolbar_title);
+        toolbar_icon = v.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("전화번호");
+        toolbar_icon.setImageResource(R.drawable.icon_call);
 
         //report list view
         reportAdpater = new CallReportListViewAdapter();

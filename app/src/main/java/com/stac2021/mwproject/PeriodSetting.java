@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,14 +20,15 @@ public class PeriodSetting extends AppCompatActivity {
     SharedPreferences.Editor spe;
     EditText editText1, editText2;
 
+    ImageButton btnBack;
+    TextView toolbar_title;
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_period);
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-        getSupportActionBar().setTitle("월경주기 설정");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sp = getApplicationContext().getSharedPreferences("pref", 0);
         spe = sp.edit();
@@ -61,19 +63,18 @@ public class PeriodSetting extends AppCompatActivity {
                 editText2.setFocusableInTouchMode(false);
             }
         });
-    }
 
-    public boolean onCreateOptionsMenu(Menu menu) { getMenuInflater().inflate(R.menu.menu_periodsetting, menu); return true; }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home: {
+        toolbar_title  = findViewById(R.id.toolbar_title);
+        toolbar_title.setText("월경주기 설정");
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-                return true;
             }
-        }
-
-        return super.onOptionsItemSelected(item);
+        });
     }
+
 
 }

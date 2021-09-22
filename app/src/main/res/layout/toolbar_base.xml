@@ -11,24 +11,29 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     android:paddingLeft="5dp"
     android:paddingRight="5dp">
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_marginRight="15dp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:id="@+id/icon"
-            android:src="@drawable/icon_mypage" />
-        <TextView
-            android:layout_toRightOf="@+id/icon"
+        <ImageButton
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
             android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="20dp"
+            android:background="#fff"
+            android:layout_height="20dp"
+            android:id="@+id/btnBack"
+            android:src="@drawable/icon_back" />
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_toRightOf="@+id/icon"
+            android:layout_marginRight="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="마이페이지"
             android:textSize="20sp"
             android:textStyle="bold" />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </androidx.appcompat.widget.Toolbar>

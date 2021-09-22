@@ -6,24 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".NoticeActivity"
     android:orientation="vertical">
-    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        android:elevation="2dp"
-        app:titleTextColor="#717171"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        android:layout_height="wrap_content">
+        <include
+        layout="@layout/toolbar_base"
+        android:id="@+id/toolbar" />
+        <ListView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            android:dividerHeight="0.5dp"
+            android:divider="#8C8C8C" />
+    </RelativeLayout>
 
-    <ListView
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list"
-        android:dividerHeight="0.5dp"
-        android:divider="#8C8C8C" />
+
 
 </LinearLayout>

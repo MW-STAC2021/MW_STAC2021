@@ -3,6 +3,9 @@ package com.stac2021.mwproject;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +19,14 @@ public class RecentActivity extends AppCompatActivity {
     MainCardViewAdapter adapter;
     androidx.appcompat.widget.Toolbar tb;
 
+    TextView toolar_title;
+    ImageButton btnBack;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mypage_recent_layout);
+        setContentView(R.layout.activity_mypage_recent);
         gridView = (ExpandableHeightGridView)findViewById(R.id.gridView);
         //adapter = new MainCardViewAdapter(itemImage, itemTitle);
         gridView.setAdapter(adapter);
@@ -28,20 +34,19 @@ public class RecentActivity extends AppCompatActivity {
 
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-        getSupportActionBar().setTitle("최근 살펴본 정보");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
-    public boolean onCreateOptionsMenu(Menu menu) { getMenuInflater().inflate(R.menu.menu_periodsetting, menu); return true; }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home: {
+
+        toolar_title = findViewById(R.id.toolbar_title);
+        btnBack = findViewById(R.id.btnBack);
+
+        toolar_title.setText("최근 살펴본 정보");
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-                return true;
             }
-        }
+        });
 
-        return super.onOptionsItemSelected(item);
     }
+
 }

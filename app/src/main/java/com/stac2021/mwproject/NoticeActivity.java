@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,16 +25,15 @@ public class NoticeActivity extends AppCompatActivity {
 
     androidx.appcompat.widget.Toolbar tb;
 
+    TextView toolbar_title;
+    ImageButton btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
         tb = findViewById(R.id.toolbar) ;
-        setSupportActionBar(tb);
-        //getSupportActionBar().setHomeAsUpIndicator(true);
-        getSupportActionBar().setTitle("공지사항");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mList = findViewById(R.id.list);
         mArray = new ArrayList<>();
@@ -53,18 +54,15 @@ public class NoticeActivity extends AppCompatActivity {
             }
         });
 
-
-    }
-    public boolean onCreateOptionsMenu(Menu menu) { getMenuInflater().inflate(R.menu.menu_periodsetting, menu); return true; }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home: {
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-                return true;
             }
-        }
+        });
 
-        return super.onOptionsItemSelected(item);
+        toolbar_title = findViewById(R.id.toolbar_title);
+        toolbar_title.setText("공지사항");
     }
 }
