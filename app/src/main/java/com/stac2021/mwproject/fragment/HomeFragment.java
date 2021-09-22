@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.SearchActivity;
 import com.stac2021.mwproject.mainTabLayout.allInfo;
 import com.stac2021.mwproject.mainTabLayout.femaleInfo;
 import com.stac2021.mwproject.mainTabLayout.livingInfo;

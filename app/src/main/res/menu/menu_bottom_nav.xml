@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/home_line"
+        android:icon="@drawable/icon_home_nav"
         android:title="홈" />
 
     <item
         android:id="@+id/navigation_calender"
-        android:icon="@drawable/icon_calendar_gray"
+        android:icon="@drawable/icon_calendar_nav"
         android:title="생리주기" />
 
     <item
         android:id="@+id/navigation_call"
-        android:icon="@drawable/call"
+        android:icon="@drawable/icon_call_nav"
         android:title="전화" />
 
     <item
         android:id="@+id/navigation_bookmark"
-        android:icon="@drawable/bookmark"
+        android:icon="@drawable/icon_bookmark_nav"
         android:title="즐겨찾기" />
 
     <item
         android:id="@+id/navigation_mypage"
-        android:icon="@drawable/mypage"
+        android:icon="@drawable/iconmypage_nav"
         android:title="마이페이지" />
 
 </menu>

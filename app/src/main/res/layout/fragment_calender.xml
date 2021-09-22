@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalenderFragment"
+    tools:context=".fragment.CalenderFragment"
     >
 
 
@@ -40,7 +40,7 @@
 
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/calendar_description2" />
+            android:src="@drawable/calendar_description" />
 
         <Button
             android:layout_marginRight="20dp"
@@ -51,7 +51,7 @@
             android:layout_height="38dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/button_writeperiod"
+            android:background="@drawable/background_button_write_period"
             android:text="월경 기록하기"
             android:textColor="#794F40"
             android:textSize="12sp" />
@@ -70,6 +70,6 @@
             style="?android:attr/borderlessButtonStyle"
             android:textSize="12sp"
             android:textColor="#fff"
-            android:background="@drawable/button_completewriteperiod" />
+            android:background="@drawable/background_button_complete_period" />
     </RelativeLayout>
 </FrameLayout>

@@ -39,7 +39,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/call_img"/>
+                android:src="@drawable/icon_call_btn"/>
         </LinearLayout>
 
 </LinearLayout>

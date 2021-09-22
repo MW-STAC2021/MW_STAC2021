@@ -29,7 +29,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/cardview_round"
+                    android:background="@drawable/background_cardview_round"
                     android:layout_height="130dp" />
                 <CheckBox
                     android:layout_marginTop="10dp"

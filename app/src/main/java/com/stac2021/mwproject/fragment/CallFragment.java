@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.callListView.CallReportListViewAdapter;
 
 public class CallFragment extends Fragment {

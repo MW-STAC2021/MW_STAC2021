@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -34,6 +34,8 @@ import com.stac2021.mwproject.CalendarDecorator.NextPeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.OvulationDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PregnantPossibleDecorator;
+import com.stac2021.mwproject.PeriodSetting;
+import com.stac2021.mwproject.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.reflect.Type;

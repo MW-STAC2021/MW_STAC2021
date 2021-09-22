@@ -1,4 +1,4 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.stac2021.mwproject.Favorite;
+import com.stac2021.mwproject.FavoriteAdapter;
+import com.stac2021.mwproject.R;
 
 import java.util.ArrayList;
 
