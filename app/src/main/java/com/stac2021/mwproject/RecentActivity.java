@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +31,9 @@ public class RecentActivity extends AppCompatActivity {
     ExpandableHeightGridView gridView;
     MainCardViewAdapter adapter;
     androidx.appcompat.widget.Toolbar tb;
+
+    TextView toolbar_title;
+    ImageButton btnBack;
 
 
     @Override
@@ -69,21 +75,16 @@ public class RecentActivity extends AppCompatActivity {
             }
         });
 
-        tb = findViewById(R.id.toolbar) ;
-        setSupportActionBar(tb);
-        getSupportActionBar().setTitle("최근 살펴본 정보");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case android.R.id.home: {
+        tb = findViewById(R.id.toolbar);
+        toolbar_title = findViewById(R.id.toolbar_title);
+        btnBack = findViewById(R.id.btnBack);
+        toolbar_title.setText("최근 살펴본 정보");
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-                return true;
             }
-        }
+        });
 
-        return super.onOptionsItemSelected(item);
     }
 }
