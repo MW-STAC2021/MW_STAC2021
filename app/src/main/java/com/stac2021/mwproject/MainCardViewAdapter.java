@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,14 +18,25 @@ public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<String> img;
     ArrayList<String> title;
     ArrayList<String> id;
+    ArrayList<String> type;
+    ArrayList<Boolean> checking;
     Context context;
     LinearLayout infoDetails;
 
-    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id) {
+    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking, ArrayList<String> type) {
         this.context = context;
         this.img = img;
         this.title = title;
         this.id = id;
+        this.checking = checking;
+        this.type = type;
+    }
+    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking) {
+        this.context = context;
+        this.img = img;
+        this.title = title;
+        this.id = id;
+        this.checking = checking;
     }
 
     public int getCount() {
@@ -45,6 +57,7 @@ public class MainCardViewAdapter extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
         ImageView viewImage;
         TextView viewTitle;
+        TextView viewType;
 
         if (view == null) {
             view = View.inflate(viewGroup.getContext(), R.layout.cardview_item, null);
@@ -57,6 +70,8 @@ public class MainCardViewAdapter extends BaseAdapter {
         viewImage = view.findViewById(R.id.img_card_view);
         viewTitle = view.findViewById(R.id.title_card_view);
         viewImage.setClipToOutline(true);
+        viewType = view.findViewById(R.id.type_card_view);
+        final CheckBox checked = view.findViewById(R.id.card_view_check);
         String img_path = null;
 
         try {
@@ -64,10 +79,14 @@ public class MainCardViewAdapter extends BaseAdapter {
             title.get(i);
             viewTitle.setText(title.get(i));
 
+            checked.setChecked(checking.get(i));
             //서버 url로 이미지 불러오기
             img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
 
+            if(type != null){
+                viewType.setText(type.get(i) + "정보");
+            }
 
         } catch (IndexOutOfBoundsException e) {
             Log.d("myapp", String.valueOf(e));
@@ -86,6 +105,25 @@ public class MainCardViewAdapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
+        checked.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("myapp", "-- 좋아요 온클릭 --");
+                        Log.d("myapp", String.valueOf(checked.isChecked()));
+                        checked.setChecked(true);
+                        if(checked.isChecked()){
+                            Log.d("myapp", "@@ 즐겨찾기 다시 추가하러 감 @@");
+                            Favorite.getInstance().insertKeep(id.get(i));
+                            checked.setChecked(true);
+                        }else{
+                            Log.d("myapp", "@@ 즐겨찾기 해제하러 감 @@");
+                            Favorite.getInstance().deleteKeep(id.get(i));
+                            checked.setChecked(false);
+                        }
+                    }
+                }
+        );
         return view;
     }
 }

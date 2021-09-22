@@ -14,7 +14,7 @@ public class AllInfoResponse {
     public String infoTitle;
     @SerializedName("thumbnail_path")
     public String thumbnailPath;
-//    @SerializedName("info_type") public int infoType;
+    @SerializedName("info_type") public String infoType;
 //    @SerializedName("info_type_image") public int infoTypeImage;
 //    @SerializedName("posting_time") public String infoPostingTime;
 //    @SerializedName("image_path") public String imagePath;
@@ -23,7 +23,12 @@ public class AllInfoResponse {
 
     }
 
+    public String getToolBarType() {
+        if (infoType.equals("0")) return "여성";
+        else if (infoType.equals("1")) return "생활";
 
+        return "0";
+    }
     public AllInfoResponse(int id, String title, String thumbnailPath) {
         this.infoId = id;
         this.infoTitle = title;
