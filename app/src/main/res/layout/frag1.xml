@@ -16,20 +16,20 @@
         <ViewFlipper
             android:id="@+id/viewFlip"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:measureAllChildren="false">
+            android:measureAllChildren="false"
+            android:layout_height="220dp">
 
             <ImageView
                 android:id="@+id/banner1"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner1" />
 
             <ImageView
                 android:id="@+id/banner2"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner2" />
@@ -37,7 +37,7 @@
             <ImageView
                 android:id="@+id/banner3"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner3" />
@@ -45,21 +45,21 @@
             <ImageView
                 android:id="@+id/banner4"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner4" />
             <ImageView
                 android:id="@+id/banner5"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner5" />
             <ImageView
                 android:id="@+id/banner6"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitStart"
                 android:src="@drawable/banner6" />
@@ -77,10 +77,11 @@
                 android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="13dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:horizontalSpacing="20dp"
                 android:numColumns="2"
                 android:verticalSpacing="20dp" />

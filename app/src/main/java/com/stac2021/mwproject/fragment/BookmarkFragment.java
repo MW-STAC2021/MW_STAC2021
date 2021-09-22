@@ -1,6 +1,8 @@
-package com.stac2021.mwproject;
+package com.stac2021.mwproject.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -8,6 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.stac2021.mwproject.Favorite;
+import com.stac2021.mwproject.FavoriteAdapter;
+import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.app;
 import com.stac2021.mwproject.keep_data.KeepResponse;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -60,6 +67,8 @@ public class BookmarkFragment extends Fragment {
         toolbar_title.setText("즐겨찾기");
         toolbar_icon.setImageResource(R.drawable.icon_favorite);
 
+
+
         Call<List<KeepResponse>> call = service.KeepList(userId);
         call.enqueue(new Callback<List<KeepResponse>>() {
             @Override
@@ -91,5 +100,6 @@ public class BookmarkFragment extends Fragment {
         });
         return view;
     }
+
 
 }
