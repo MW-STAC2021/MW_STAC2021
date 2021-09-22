@@ -64,6 +64,7 @@ public class Favorite {
     }
 
     public void getUserId() {
+        Log.d("favo", "Favorit : " + userId);
         userId = app.getUserId();
     }
 
@@ -80,6 +81,7 @@ public class Favorite {
     }
 
     public boolean isChecked(String infoId) {
+//        Log.d("myapp", "즐겨찾기 된 정보인지 확인하는 메서드 : ");
         if (favId.contains(infoId)) {
             return true;
         } else return false;
@@ -124,7 +126,8 @@ public class Favorite {
 
     public void keepList() {
         getUserId();
-        //Log.d("favo", "== 유저 아이디 : " + userId );
+        favId.clear();
+        Log.d("favo", "== 유저 아이디 : " + userId );
         ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
         Call<List<KeepResponse>> call = service.KeepList(userId);
         call.enqueue(new Callback<List<KeepResponse>>() {
@@ -135,7 +138,7 @@ public class Favorite {
                     if (result.size() != 0) {
                         for (KeepResponse info : result) {
                             favId.add(info.id);
-                            //Log.d("favo", info.id);
+                            Log.d("favo", info.id);
                         }
                     }
                 } else {

@@ -92,6 +92,7 @@ public class MainCardViewAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), InfoViewActivity.class);
                 Log.d("myapp", id.get(i));
+                Recently.getInstance().insertRecently(id.get(i));
                 String setId = id.get(i);
                 intent.putExtra("id", setId);
                 //Toast.makeText(v.getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();

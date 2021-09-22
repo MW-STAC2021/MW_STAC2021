@@ -27,6 +27,7 @@ import com.stac2021.mwproject.app;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 import com.stac2021.mwproject.other_data.KeepResponse;
+import com.stac2021.mwproject.other_data.RecentlyResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,14 +62,14 @@ public class MypageFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
-        Call<List<KeepResponse>> call = service.KeepList(userId);
-        call.enqueue(new Callback<List<KeepResponse>>() {
+        Call<List<RecentlyResponse>> call = service.RecentlyList(userId);
+        call.enqueue(new Callback<List<RecentlyResponse>>() {
             @Override
-            public void onResponse(Call<List<KeepResponse>> call, Response<List<KeepResponse>> response) {
+            public void onResponse(Call<List<RecentlyResponse>> call, Response<List<RecentlyResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    List<KeepResponse> result = response.body();
+                    List<RecentlyResponse> result = response.body();
                     if(result.size() != 0){
-                        for (KeepResponse info : result) {
+                        for (RecentlyResponse info : result) {
                             itemImage.add(info.thumbnailPath);
                             itemTitle.add(info.title);
                             itemId.add(info.id);
@@ -83,7 +84,7 @@ public class MypageFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<KeepResponse>> call, Throwable t) {
+            public void onFailure(Call<List<RecentlyResponse>> call, Throwable t) {
                 Toast.makeText(context, "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
             }
         });

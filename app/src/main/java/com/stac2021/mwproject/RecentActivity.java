@@ -34,9 +34,10 @@ public class RecentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage_recent);
+        String userId = app.getUserId();
+        Log.d("myapp", "recently - id" + userId);
         ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
-
-        Call<List<RecentlyResponse>> call = service.RecentlyList("all");
+        Call<List<RecentlyResponse>> call = service.RecentlyList(userId);
         call.enqueue(new Callback<List<RecentlyResponse>>() {
             @Override
             public void onResponse(Call<List<RecentlyResponse>> call, Response<List<RecentlyResponse>> response) {
@@ -54,7 +55,7 @@ public class RecentActivity extends AppCompatActivity {
                     Log.d("myapp", "allInfo - else err");
                 }
                 // 카드뷰
-                gridView = (ExpandableHeightGridView)findViewById(R.id.gridView);
+                gridView = (ExpandableHeightGridView)findViewById(R.id.recently_grid_view);
                 adapter = new MainCardViewAdapter(getApplicationContext(), infoThumbNail, infoTitle, infoId, infoIsChecked);
                 gridView.setAdapter(adapter);
                 gridView.setExpanded(true);

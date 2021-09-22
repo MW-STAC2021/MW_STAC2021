@@ -64,8 +64,8 @@ public interface ServiceApi {
     Call<ResponseBody> insertRecently(@Path("user_id") String userId, @Path("info_id") String infoId);
 
     // 최근 본 정보 삭제
-    @DELETE("/recently/{user_id}/{info_id}")
-    Call<String> deleteRecently(@Path("user_id") String userId, @Path("info_id") String infoId);
+    @DELETE("/recently/{user_id}")
+    Call<String> deleteRecently(@Path("user_id") String userId);
 
     // 최근 본 정보 페이지
     @GET("/recently/list")

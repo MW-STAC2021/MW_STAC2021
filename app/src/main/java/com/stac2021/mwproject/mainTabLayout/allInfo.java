@@ -47,7 +47,7 @@ public class allInfo extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.frag1, container, false);
-
+        Favorite.getInstance().keepList();
         service = RetrofitClient.getClient().create(ServiceApi.class);
         Call<List<AllInfoResponse>> call = service.listAllInfo("all");
         call.enqueue(new Callback<List<AllInfoResponse>>() {
@@ -61,6 +61,7 @@ public class allInfo extends Fragment {
                         infoTitle.add(info.getTitle());
                         infoThumbNail.add(info.getThumbnailPath());
                         boolean isCheck = Favorite.getInstance().isChecked(String.valueOf(info.getId()));
+//                        Log.d("myapp", String.valueOf(isCheck));
                         infoIsChecked.add(isCheck);
                         infoType.add(info.getToolBarType());
 

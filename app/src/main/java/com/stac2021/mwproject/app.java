@@ -36,6 +36,7 @@ public class app extends Application {
     }
 
     public static String getUserId(){
+        Log.d("favo", "app : " + userId);
         return userId;
     }
     public static String setUserId(String id){

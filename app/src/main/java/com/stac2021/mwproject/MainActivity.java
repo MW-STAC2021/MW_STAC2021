@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Favorite.getInstance().keepList();
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new HomeFragment()).commit();
         bottomNavigationView = findViewById(R.id.navigationView);
         // FrameLayout에 fragment.xml 띄우기

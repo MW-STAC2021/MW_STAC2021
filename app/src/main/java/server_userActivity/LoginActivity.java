@@ -175,8 +175,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     UserInfoResponse result = response.body();
-                    Log.d("myapp", result.userId);
-                    Log.d("myapp", result.userName);
+                    Log.d("favo", result.userId);
+                    Log.d("favo", result.userName);
                     userId = result.userId;
                     userName = result.userName;
                     getUserInfoItem();
