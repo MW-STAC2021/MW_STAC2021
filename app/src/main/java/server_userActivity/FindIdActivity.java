@@ -13,7 +13,7 @@ public class FindIdActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_findid);
+        setContentView(R.layout.activity_find_id);
 
         btnCancel = findViewById(R.id.btnCancel);
         btnComplete = findViewById(R.id.btnComplete);

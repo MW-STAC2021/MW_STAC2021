@@ -31,7 +31,6 @@ public class HomeFragment extends Fragment {
     private allInfo frag1;
     private femaleInfo frag2;
     private livingInfo frag3;
-    private BannerAdapter bannerAdapter;
 
     public HomeFragment() {
     }
