@@ -13,8 +13,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,8 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,7 +34,6 @@ import com.stac2021.mwproject.CalendarDecorator.NextPeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.OvulationDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PregnantPossibleDecorator;
-import com.stac2021.mwproject.CalendarDecorator.UserPeriodDates;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.reflect.Type;
@@ -61,7 +58,9 @@ public class CalenderFragment extends Fragment {
     List<List<CalendarDay>> userDates = new ArrayList<>();
     String json;
     Type type;
-    // UserPeriodDates userPeriod;
+
+    TextView toolbar_title;
+    ImageView toolbar_icon;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -73,6 +72,12 @@ public class CalenderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
         tb = view.findViewById(R.id.toolbar) ;
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
+
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("월경주기");
+        toolbar_icon.setImageResource(R.drawable.icon_calender);
 
         calendarView = view.findViewById(R.id.calendarView);
         btnWritePeriod = view.findViewById(R.id.writePeriod);

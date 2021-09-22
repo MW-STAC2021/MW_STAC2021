@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="#fff">
         <include
-            layout="@layout/toolbar_favorite"
+            layout="@layout/toolbar_icon"
             android:id="@+id/toolbar" />
         <ListView
             android:layout_below="@+id/toolbar"

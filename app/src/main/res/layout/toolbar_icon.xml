@@ -10,24 +10,24 @@
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     android:paddingLeft="5dp"
-    android:paddingRight="15dp">
+    android:paddingRight="5dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
         <ImageView
+            android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:id="@+id/icon"
-            android:src="@drawable/icon_calender" />
+            android:id="@+id/toolbar_icon" />
         <TextView
+            android:layout_toRightOf="@+id/toolbar_icon"
+            android:layout_marginRight="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/icon"
             android:layout_centerVertical="true"
-            android:text="월경주기"
+            android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:id="@+id/toolbar_title"
             android:textStyle="bold" />
     </RelativeLayout>
 

@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,9 @@ public class BookmarkFragment extends Fragment {
 
     androidx.appcompat.widget.Toolbar tb;
 
+    TextView toolbar_title;
+    ImageView toolbar_icon;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +39,12 @@ public class BookmarkFragment extends Fragment {
         mArray = new ArrayList<>();
         tb = view.findViewById(R.id.toolbar) ;
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
+
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("즐겨찾기");
+        toolbar_icon.setImageResource(R.drawable.icon_favorite);
 
         for(int i=0; i<itemImage.length; i++) {
 //            mItem = new Favorite(ContextCompat.getDrawable(getContext(), itemImage[i]), itemTitle[i], itemCategory[i], true);
