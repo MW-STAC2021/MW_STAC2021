@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,6 +39,8 @@ public class BookmarkFragment extends Fragment {
     private ServiceApi service;
     private FavoriteAdapter adapter;
     private List<Favorite> infoList = new ArrayList<>();
+    TextView toolbar_title;
+    ImageView toolbar_icon;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -51,6 +54,11 @@ public class BookmarkFragment extends Fragment {
         userId = ((app)getActivity().getApplication()).getUserId();
 
         listView = view.findViewById(R.id.list);
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("즐겨찾기");
+        toolbar_icon.setImageResource(R.drawable.icon_favorite);
 
         Call<List<KeepResponse>> call = service.KeepList(userId);
         call.enqueue(new Callback<List<KeepResponse>>() {
