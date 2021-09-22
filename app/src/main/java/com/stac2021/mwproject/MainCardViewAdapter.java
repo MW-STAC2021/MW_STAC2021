@@ -56,6 +56,7 @@ public class MainCardViewAdapter extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
         ImageView viewImage;
         TextView viewTitle;
+        TextView viewType;
 
         if (view == null) {
             view = View.inflate(viewGroup.getContext(), R.layout.item_cardview, null);
@@ -67,6 +68,7 @@ public class MainCardViewAdapter extends BaseAdapter {
 
         viewImage = view.findViewById(R.id.img_card_view);
         viewTitle = view.findViewById(R.id.title_card_view);
+        viewType = view.findViewById(R.id.type_card_view);
         final CheckBox checked = view.findViewById(R.id.card_view_check);
         String img_path = null;
 
@@ -80,6 +82,7 @@ public class MainCardViewAdapter extends BaseAdapter {
             img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
 
+            viewType.setText(infoType.get(i) + "정보");
 
         } catch (IndexOutOfBoundsException e) {
             Log.d("myapp", String.valueOf(e));
