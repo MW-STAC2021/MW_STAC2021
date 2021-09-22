@@ -1,16 +1,14 @@
 package com.stac2021.mwproject.network;
 
-import com.stac2021.mwproject.keep_data.KeepResponse;
+import com.stac2021.mwproject.other_data.KeepResponse;
+import com.stac2021.mwproject.other_data.RecentlyResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -60,4 +58,16 @@ public interface ServiceApi {
     // 즐겨찾기 페이지
     @GET("/keep/list")
     Call<List<KeepResponse>> KeepList(@Query("user_id") String userId);
+
+    // 최근 본 정보 추가
+    @POST("/recently/{user_id}/{info_id}")
+    Call<ResponseBody> insertRecently(@Path("user_id") String userId, @Path("info_id") String infoId);
+
+    // 최근 본 정보 삭제
+    @DELETE("/recently/{user_id}/{info_id}")
+    Call<String> deleteRecently(@Path("user_id") String userId, @Path("info_id") String infoId);
+
+    // 최근 본 정보 페이지
+    @GET("/recently/list")
+    Call<List<RecentlyResponse>> RecentlyList(@Query("user_id") String userId);
 }

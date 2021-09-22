@@ -18,19 +18,10 @@ public class MainCardViewAdapter extends BaseAdapter {
     ArrayList<String> img;
     ArrayList<String> title;
     ArrayList<String> id;
-    ArrayList<String> type;
     ArrayList<Boolean> checking;
     Context context;
     LinearLayout infoDetails;
 
-    public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking, ArrayList<String> type) {
-        this.context = context;
-        this.img = img;
-        this.title = title;
-        this.id = id;
-        this.checking = checking;
-        this.type = type;
-    }
     public MainCardViewAdapter(Context context, ArrayList<String> img, ArrayList<String> title, ArrayList<String> id, ArrayList<Boolean> checking) {
         this.context = context;
         this.img = img;
@@ -57,10 +48,9 @@ public class MainCardViewAdapter extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
         ImageView viewImage;
         TextView viewTitle;
-        TextView viewType;
 
         if (view == null) {
-            view = View.inflate(viewGroup.getContext(), R.layout.item_cardview, null);
+            view = View.inflate(viewGroup.getContext(), R.layout.cardview_item, null);
         }
 
         final Context context = viewGroup.getContext();
@@ -69,7 +59,6 @@ public class MainCardViewAdapter extends BaseAdapter {
 
         viewImage = view.findViewById(R.id.img_card_view);
         viewTitle = view.findViewById(R.id.title_card_view);
-        viewType = view.findViewById(R.id.type_card_view);
         final CheckBox checked = view.findViewById(R.id.card_view_check);
         String img_path = null;
 
@@ -83,9 +72,6 @@ public class MainCardViewAdapter extends BaseAdapter {
             img_path = "http://54.89.236.27:3000/infoThumbnail/" + img.get(i);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
 
-            if(type != null){
-                viewType.setText(type.get(i) + "정보");
-            }
 
         } catch (IndexOutOfBoundsException e) {
             Log.d("myapp", String.valueOf(e));

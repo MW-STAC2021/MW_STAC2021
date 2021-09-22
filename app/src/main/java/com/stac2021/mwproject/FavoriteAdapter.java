@@ -60,7 +60,6 @@ public class FavoriteAdapter extends BaseAdapter {
         final CheckBox checked = view.findViewById(R.id.favorite_check);
 
         Boolean what;
-        //Log.d("myapp", "-----" + String.valueOf(checked.isChecked()));
         checked.setChecked(true);
 
         //title 넣기
@@ -93,11 +92,13 @@ public class FavoriteAdapter extends BaseAdapter {
                     public void onClick(View v) {
                         Log.d("myapp", "-- 좋아요 온클릭 --");
                         if(checked.isChecked()){
-                            Log.d("myapp", "@@ 즐겨찾기 해제하러 감 @@");
-                            Favorite.getInstance().deleteKeep(infoList.get(i).getId());
-                        }else{
                             Log.d("myapp", "@@ 즐겨찾기 다시 추가하러 감 @@");
                             Favorite.getInstance().insertKeep(infoList.get(i).getId());
+                            checked.setChecked(true);
+                        }else{
+                            Log.d("myapp", "@@ 즐겨찾기 해제하러 감 @@");
+                            Favorite.getInstance().deleteKeep(infoList.get(i).getId());
+                            checked.setChecked(false);
                         }
                     }
 

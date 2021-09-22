@@ -1,9 +1,8 @@
-package com.stac2021.mwproject.keep_data;
+package com.stac2021.mwproject.other_data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class KeepResponse {
-
+public class RecentlyResponse {
     @SerializedName("info_type")
     public String infoType;
     @SerializedName("title")
