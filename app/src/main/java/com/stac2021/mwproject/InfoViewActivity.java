@@ -1,6 +1,8 @@
 package com.stac2021.mwproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
 
@@ -34,7 +37,9 @@ public class InfoViewActivity extends AppCompatActivity {
     TextView viewDate;
     TextView viewContent;
     ImageButton btnBack;
+    ImageView viewImg;
     String id;
+    String img_path = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class InfoViewActivity extends AppCompatActivity {
         viewDate = findViewById(R.id.details_view_date);
         viewContent = findViewById(R.id.details_view_content);
         btnBack = findViewById(R.id.details_back_btn);
+        viewImg = findViewById(R.id.details_view_img);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +71,6 @@ public class InfoViewActivity extends AppCompatActivity {
         File file = new File("http://54.89.236.27:3000/infoContent/" + id);
 
         detailsData();
-
 
     }
 
@@ -91,6 +96,9 @@ public class InfoViewActivity extends AppCompatActivity {
                         //txt 파일 읽기
                         String contentPath = "http://54.89.236.27:3000/infoContent/" + info.contentPath;
                         getContent(contentPath);
+
+                        img_path = "http://54.89.236.27:3000/infoImg/" + info.imgPath;
+                        Glide.with(getApplicationContext()).load(img_path).into(viewImg);
                     }
                 }
             }

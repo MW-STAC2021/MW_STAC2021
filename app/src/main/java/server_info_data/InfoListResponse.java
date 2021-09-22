@@ -13,6 +13,8 @@ public class InfoListResponse {
     public String postingTime;
     @SerializedName("content_path")
     public String contentPath;
+    @SerializedName("inside_img_path")
+    public String imgPath;
 
     public String getToolBarType() {
         if (type.equals("0")) return "여성";

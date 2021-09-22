@@ -63,10 +63,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="context"
+                        android:textColor="#495057"
                         android:textSize="16sp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/details_view_img"
+                        android:layout_marginTop="40dp"
+                        android:scaleType="fitStart"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/thumbnail9" />
             </LinearLayout>
