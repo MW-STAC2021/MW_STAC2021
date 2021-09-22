@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +33,7 @@ public class InfoViewActivity extends AppCompatActivity {
     TextView viewTitle;
     TextView viewDate;
     TextView viewContent;
+    ImageButton btnBack;
     String id;
 
     @Override
@@ -41,6 +45,14 @@ public class InfoViewActivity extends AppCompatActivity {
         viewTitle = findViewById(R.id.details_view_title);
         viewDate = findViewById(R.id.details_view_date);
         viewContent = findViewById(R.id.details_view_content);
+        btnBack = findViewById(R.id.details_back_btn);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         Bundle extras = getIntent().getExtras();
         id = extras.getString("id");
@@ -53,6 +65,8 @@ public class InfoViewActivity extends AppCompatActivity {
         File file = new File("http://54.89.236.27:3000/infoContent/" + id);
 
         detailsData();
+
+
     }
 
     private void detailsData() {

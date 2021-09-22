@@ -25,7 +25,7 @@ public class MypageFragment extends Fragment {
     Integer[] itemImage = {R.drawable.thumbnail1, R.drawable.thumbnail01, R.drawable.thumbnail2, R.drawable.thumbnail02, R.drawable.thumbnail3, R.drawable.thumbnail03, R.drawable.thumbnail4, R.drawable.thumbnail04, R.drawable.thumbnail5};
     Button btnRecent;
 
-    Button btn1, btn2, btn3, btn4, btn5;
+    Button btn1, btn2, btn4, btn5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MypageFragment extends Fragment {
 
         btn1 = view.findViewById(R.id.mypage_btn1);
         btn2 = view.findViewById(R.id.mypage_btn2);
-        btn3 = view.findViewById(R.id.mypage_btn3);
+
         btn4 = view.findViewById(R.id.mypage_btn4);
         btn5 = view.findViewById(R.id.mypage_btn5);
 
