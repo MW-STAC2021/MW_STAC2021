@@ -2,6 +2,7 @@ package com.stac2021.mwproject;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,8 @@ public class PeriodSetting extends AppCompatActivity {
     SharedPreferences sp;
     SharedPreferences.Editor spe;
     EditText editText1, editText2;
-
+    String userName = "회원";
+    TextView periodUserName;
     ImageButton btnBack;
     TextView toolbar_title;
 
@@ -26,7 +28,10 @@ public class PeriodSetting extends AppCompatActivity {
         setContentView(R.layout.activity_setting_period);
         tb = findViewById(R.id.toolbar) ;
         setSupportActionBar(tb);
-
+        periodUserName = findViewById(R.id.period_user_name);
+        userName = ((app)getApplication()).getUserName();
+        Log.d("myapp", "캘린더 이름 : " + userName);
+        periodUserName.setText(userName);
         sp = getApplicationContext().getSharedPreferences("pref", 0);
         spe = sp.edit();
 

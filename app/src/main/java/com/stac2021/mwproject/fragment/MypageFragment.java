@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stac2021.mwproject.Favorite;
@@ -56,7 +57,11 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
         tb = view.findViewById(R.id.toolbar) ;
+        TextView myPage = view.findViewById(R.id.my_page_user_name_jjin);
         String userId = ((app)getActivity().getApplication()).getUserId();
+        String userName = ((app)getActivity().getApplication()).getUserName();
+Log.d("myapp", "mypage name : " + userName);
+        myPage.setText(userName);
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
