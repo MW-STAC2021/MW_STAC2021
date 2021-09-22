@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button intentJoin;
     private TextView myPage;
     private TextView period;
-    private String userName;
+    private volatile String userName;
     private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = findViewById(R.id.login_progress);
+        myPage = findViewById(R.id.my_page_user_name_jjin);
+        period = findViewById(R.id.period_user_name);
 
         viewId = findViewById(R.id.loginId);
         viewPw = findViewById(R.id.loginPw);
@@ -182,10 +184,13 @@ public class LoginActivity extends AppCompatActivity {
                     getUserInfoItem();
                     app.setUserId(userId);
                     app.setUserName(userName);
-//                    myPage = findViewById(R.id.my_page_user_name);
-//                    myPage.setText(result.getUserName());
-//                    period = findViewById(R.id.period_user_name);
-//                    period.setText(result.getUserName());
+//                    while(userName == null){
+//                        userId = result.userId;
+//                        userName = result.userName;
+//                        if(userName == null) Log.d("myapp", "userName is null");
+//                        else Log.d("myapp", "userName is not null");
+//                    }
+
                     // 텍스트 뷰에 네임 값을 넣으려고 하니 오류 발생
                 }
             }
@@ -203,8 +208,12 @@ public class LoginActivity extends AppCompatActivity {
         UserInfoItem item = new UserInfoItem();
         item.name = userName;
         item.id  = userId;
-        Log.d("myapp", item.name);
-        Log.d("myapp", item.id);
+        Log.d("myapp", "뫄뫄  : " + item.name);
+        Log.d("myapp", "뫄뫄  :  " + item.id);
+
+        //myPage.setText(item.name);
+
+       // period.setText(item.name);
         return item;
     }
 }

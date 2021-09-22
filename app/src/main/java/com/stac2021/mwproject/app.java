@@ -18,7 +18,7 @@ import server_user_data.UserInfoResponse;
 public class app extends Application {
     ServiceApi service;
     private static String userId;
-    private static String userName;
+    private static String userName = null;
     private UserInfoItem userInfoItem;
     @Override
     public void onCreate() {
@@ -32,7 +32,9 @@ public class app extends Application {
     }
 
     public String getUserName(){
-        return userInfoItem.name;
+        Log.d("favo", "app : " + userName);
+        if (userName == null) return "회원";
+        return userName;
     }
 
     public static String getUserId(){

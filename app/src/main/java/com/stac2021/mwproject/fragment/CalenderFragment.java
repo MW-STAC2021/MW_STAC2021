@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,6 +37,7 @@ import com.stac2021.mwproject.CalendarDecorator.PeriodDecorator;
 import com.stac2021.mwproject.CalendarDecorator.PregnantPossibleDecorator;
 import com.stac2021.mwproject.PeriodSetting;
 import com.stac2021.mwproject.R;
+import com.stac2021.mwproject.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.reflect.Type;
@@ -64,7 +66,6 @@ public class CalenderFragment extends Fragment {
     TextView toolbar_title;
     ImageView toolbar_icon;
 
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +73,7 @@ public class CalenderFragment extends Fragment {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
+
         tb = view.findViewById(R.id.toolbar) ;
         ((AppCompatActivity)getActivity()).setSupportActionBar(tb);
 
@@ -93,7 +95,6 @@ public class CalenderFragment extends Fragment {
         View dialogView = View.inflate(getContext(), R.layout.dialog_period, null);
         final AlertDialog dlg = new AlertDialog.Builder(getContext()).create();
         dlg.setView(dialogView);
-
 
         /*for(int i=0; i<periodDates.size(); i++) {
             calendarView.addDecorator(new PeriodDecorator(Color.parseColor("#FB6D37"), periodDates.get(i)));
