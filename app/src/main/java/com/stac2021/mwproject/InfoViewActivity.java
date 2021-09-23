@@ -66,10 +66,6 @@ public class InfoViewActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        //ReadTextFile();
-        File file = new File("http://54.89.236.27:3000/infoContent/" + id);
-
         detailsData();
 
     }

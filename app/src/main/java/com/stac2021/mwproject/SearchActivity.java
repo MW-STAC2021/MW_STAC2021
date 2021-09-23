@@ -79,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void search(String searchText) {
-        infoList.clear();
+        infoList.clear(); // 재검색할 때마다 리스트 비우기
         if (searchText.length() != 0) {
             Call<List<InfoSearchResponse>> call = service.InfoSearch(searchText);
             call.enqueue(new Callback<List<InfoSearchResponse>>() {
@@ -93,7 +93,6 @@ public class SearchActivity extends AppCompatActivity {
                                     info.thumbnailPath, info.title, info.getToolBarType(), String.valueOf(info.id), false);
                             infoList.add(data);
                         }
-                        Log.d("myapp", "serach - success");
                     } else {
                         Log.d("myapp", "serach - else err");
                     }

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,8 @@ public class MypageFragment extends Fragment {
     androidx.appcompat.widget.Toolbar tb;
     RecyclerView recyclerView;
     MypageCardViewAdapter adapter;
+    TextView toolbar_title;
+    ImageView toolbar_icon;
     private List<Favorite> infoList = new ArrayList<>();
     ArrayList<String> itemImage = new ArrayList<>();
     ArrayList<String> itemTitle = new ArrayList<>();
@@ -57,6 +60,12 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mypage, container, false);
         tb = view.findViewById(R.id.toolbar) ;
+        toolbar_title = view.findViewById(R.id.toolbar_title);
+        toolbar_icon = view.findViewById(R.id.toolbar_icon);
+
+        toolbar_title.setText("마이페이지");
+        toolbar_icon.setImageResource(R.drawable.icon_mypage);
+
         TextView myPage = view.findViewById(R.id.my_page_user_name_jjin);
         String userId = ((app)getActivity().getApplication()).getUserId();
         String userName = ((app)getActivity().getApplication()).getUserName();

@@ -95,9 +95,8 @@ public class Favorite {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
-//                    Log.d("myapp", "insertKeep");
                 } else {
-//                    Log.e("myapp", "insertKeep 이미 있음");
+                    Log.e("myapp", "insertKeep 이미 존재");
                 }
             }
 
