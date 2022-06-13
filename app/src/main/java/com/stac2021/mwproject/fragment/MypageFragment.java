@@ -43,7 +43,7 @@ public class MypageFragment extends Fragment {
     androidx.appcompat.widget.Toolbar tb;
     RecyclerView recyclerView;
     MypageCardViewAdapter adapter;
-    TextView toolbar_title;
+    TextView toolbar_title, username;
     ImageView toolbar_icon;
     private List<Favorite> infoList = new ArrayList<>();
     ArrayList<String> itemImage = new ArrayList<>();
@@ -62,6 +62,8 @@ public class MypageFragment extends Fragment {
         tb = view.findViewById(R.id.toolbar) ;
         toolbar_title = view.findViewById(R.id.toolbar_title);
         toolbar_icon = view.findViewById(R.id.toolbar_icon);
+        username = view.findViewById(R.id.my_page_user_name_jjin);
+        username.setText(app.userName);
 
         toolbar_title.setText("마이페이지");
         toolbar_icon.setImageResource(R.drawable.icon_mypage);

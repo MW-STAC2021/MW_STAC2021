@@ -66,7 +66,7 @@ public class FavoriteAdapter extends BaseAdapter {
         viewTitle.setText(infoList.get(i).getTitle());
 
         //이미지 넣기
-        img_path = "http://54.89.236.27:3000/infoThumbnail/" + infoList.get(i).getImage();
+        img_path = "http://3.216.173.66:3000/infoThumbnail/" + infoList.get(i).getImage();
         Glide.with(view.getContext()).load(img_path).into(viewImg);
         viewImg.setClipToOutline(true);
 

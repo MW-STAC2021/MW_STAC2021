@@ -42,6 +42,10 @@ public class livingInfo extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.frag3, container, false);
+        infoId.clear();
+        infoTitle.clear();
+        infoThumbNail.clear();
+        infoIsChecked.clear();
         service = RetrofitClient.getClient().create(ServiceApi.class);
         Call<List<AllInfoResponse>> call = service.listAllInfo("1");
         call.enqueue(new Callback<List<AllInfoResponse>>() {

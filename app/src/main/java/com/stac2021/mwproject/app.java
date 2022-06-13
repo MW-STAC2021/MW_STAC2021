@@ -18,7 +18,7 @@ import server_user_data.UserInfoResponse;
 public class app extends Application {
     ServiceApi service;
     private static String userId;
-    private static String userName = null;
+    public static String userName = null;
     private UserInfoItem userInfoItem;
     @Override
     public void onCreate() {

@@ -12,6 +12,8 @@ public class LoginResponse {
     @SerializedName("id")
     public String userId;
 
+    public String name;
+
     public int getCode() {
         return code;
     }

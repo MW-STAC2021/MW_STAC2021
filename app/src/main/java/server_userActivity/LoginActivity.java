@@ -188,7 +188,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserInfoResponse> call, Throwable t) {
                 Log.e("myapp", "에러 : " + t.getMessage());
-                Toast.makeText(getApplicationContext(), "사용자 조회 실패", Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -64,7 +64,7 @@ public class MypageCardViewAdapter extends RecyclerView.Adapter<MypageCardViewAd
     @Override
     public void onBindViewHolder(@NonNull final MypageCardViewAdapter.ViewHolder holder, final int position) {
         holder.itemView.setTag(position); //커스텀 리스트 뷰의 각각의 리스트를 의미
-        String img_path = "http://54.89.236.27:3000/infoThumbnail/" + img_arr.get(position);
+        String img_path = "http://3.216.173.66:3000/infoThumbnail/" + img_arr.get(position);
         Log.d("myapp", img_path);
         Glide.with(holder.itemView.getContext())
                 .load(img_path)

@@ -6,7 +6,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class FragmentAdapter extends FragmentPagerAdapter {
+public class
+FragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
     public FragmentAdapter(FragmentManager fm) { // 생성자 오버로딩
         super(fm);

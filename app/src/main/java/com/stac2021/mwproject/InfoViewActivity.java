@@ -90,10 +90,10 @@ public class InfoViewActivity extends AppCompatActivity {
                         viewDate.setText(date);
 
                         //txt 파일 읽기
-                        String contentPath = "http://54.89.236.27:3000/infoContent/" + info.contentPath;
+                        String contentPath = "http://3.216.173.66:3000/infoContent/" + info.contentPath;
                         getContent(contentPath);
 
-                        img_path = "http://54.89.236.27:3000/infoImg/" + info.imgPath;
+                        img_path = "http://3.216.173.66:3000/infoImg/" + info.imgPath;
                         Glide.with(getApplicationContext()).load(img_path).into(viewImg);
                     }
                 }

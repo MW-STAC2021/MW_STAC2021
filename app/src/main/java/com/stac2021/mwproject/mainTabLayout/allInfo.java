@@ -46,6 +46,11 @@ public class allInfo extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        infoId.clear();
+        infoTitle.clear();
+        infoThumbNail.clear();
+        infoIsChecked.clear();
+        infoType.clear();
         final View v = inflater.inflate(R.layout.frag1, container, false);
         Favorite.getInstance().keepList();
         service = RetrofitClient.getClient().create(ServiceApi.class);
