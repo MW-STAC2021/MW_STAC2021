@@ -2,7 +2,6 @@ package server_userActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.stac2021.mwproject.MainActivity;
 import com.stac2021.mwproject.R;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -117,6 +115,7 @@ public class JoinActivity extends AppCompatActivity {
         }
 
     }
+
     private void startJoin(JoinData data) {
         service.userJoin(data).enqueue(new Callback<JoinResponse>() {
             @Override
@@ -128,7 +127,8 @@ public class JoinActivity extends AppCompatActivity {
                 if (result.getCode() == 200) {
                     //액티비티 종료
                     finish();
-
+                } else {
+                    Toast.makeText(JoinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -151,6 +151,7 @@ public class JoinActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         return password.length() >= 8;
     }
+
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
