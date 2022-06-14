@@ -134,10 +134,10 @@ public class LoginActivity extends AppCompatActivity {
                     //로그인 성공 시 메인화면으로 이동
                     String idid = result.getUserId();
                     Log.d("myapp", result.getMessage());
-                    userInfoSave(result.getUserId());
+                    app.setUserId(result.getUserId());
+                    app.setUserName(result.name);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-                    //액티비티 종료
                     finish();
 
                 }
