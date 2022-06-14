@@ -9,10 +9,7 @@ public class LoginResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("id")
-    public String userId;
-
-    public String name;
+    public Data data;
 
     public int getCode() {
         return code;
@@ -20,9 +17,5 @@ public class LoginResponse {
 
     public String getMessage() {
         return message;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 }

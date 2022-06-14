@@ -7,14 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.stac2021.mwproject.MainActivity;
 import com.stac2021.mwproject.R;
-import com.stac2021.mwproject.UserInfoItem;
 import com.stac2021.mwproject.app;
 import com.stac2021.mwproject.network.RetrofitClient;
 import com.stac2021.mwproject.network.ServiceApi;
@@ -24,7 +22,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import server_user_data.LoginData;
 import server_user_data.LoginResponse;
-import server_user_data.UserInfoResponse;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,10 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText viewPw;
     private Button loginBtn;
     private Button intentJoin;
-    private TextView myPage;
-    private TextView period;
-    private volatile String userName;
-    private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +39,6 @@ public class LoginActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = findViewById(R.id.login_progress);
-        myPage = findViewById(R.id.my_page_user_name_jjin);
-        period = findViewById(R.id.period_user_name);
 
         viewId = findViewById(R.id.loginId);
         viewPw = findViewById(R.id.loginPw);
@@ -61,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // 회원가입 인텐트
         intentJoin = findViewById(R.id.intentJoin);
-        intentJoin.setOnClickListener(new View.OnClickListener(){
+        intentJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
@@ -70,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         // 아이디 찾기 인텐트
         intentJoin = findViewById(R.id.btn_find_id);
-        intentJoin.setOnClickListener(new View.OnClickListener(){
+        intentJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), FindIdActivity.class);
@@ -79,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         // 비밀번호 찾기 인텐트
         intentJoin = findViewById(R.id.btn_find_pw);
-        intentJoin.setOnClickListener(new View.OnClickListener(){
+        intentJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), FindPwActivity.class);
@@ -88,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    private void attemptLogin(){
+
+    private void attemptLogin() {
         viewId.setError(null);
         viewPw.setError(null);
 
@@ -122,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(true);
         }
     }
+
     private void startLogin(LoginData data) {
         service.userLogin(data).enqueue(new Callback<LoginResponse>() {
             @Override
@@ -131,78 +125,33 @@ public class LoginActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    //로그인 성공 시 메인화면으로 이동
-                    String idid = result.getUserId();
-                    Log.d("myapp", result.getMessage());
-                    app.setUserId(result.getUserId());
-                    app.setUserName(result.name);
+                    app.setUserId(result.data.id);
+                    app.setUserName(result.data.name);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
-
+                } else {
+                    Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, "인터넷 연결이 필요합니다.", Toast.LENGTH_SHORT).show();
-                Log.e("로그인 에러 발생",t.getMessage());
+                Log.e("로그인 에러 발생", t.getMessage());
                 t.printStackTrace();
                 showProgress(false);
             }
         });
 
     }
+
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
+
     private boolean isPasswordValid(String password) {
         return password.length() >= 6;
     }
 
-    private void userInfoSave(String id){
-        Call<UserInfoResponse> call = service.userInfo(id);
-        call.enqueue(new Callback<UserInfoResponse>() {
-            @Override
-            public void onResponse(Call<UserInfoResponse> call, Response<UserInfoResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    UserInfoResponse result = response.body();
-                    Log.d("favo", result.userId);
-                    Log.d("favo", result.userName);
-                    userId = result.userId;
-                    userName = result.userName;
-                    getUserInfoItem();
-                    app.setUserId(userId);
-                    app.setUserName(userName);
-//                    while(userName == null){
-//                        userId = result.userId;
-//                        userName = result.userName;
-//                        if(userName == null) Log.d("myapp", "userName is null");
-//                        else Log.d("myapp", "userName is not null");
-//                    }
-
-                    // 텍스트 뷰에 네임 값을 넣으려고 하니 오류 발생
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserInfoResponse> call, Throwable t) {
-                Log.e("myapp", "에러 : " + t.getMessage());
-
-            }
-        });
-    }
-
-    private UserInfoItem getUserInfoItem(){
-        UserInfoItem item = new UserInfoItem();
-        item.name = userName;
-        item.id  = userId;
-        Log.d("myapp", "뫄뫄  : " + item.name);
-        Log.d("myapp", "뫄뫄  :  " + item.id);
-
-        //myPage.setText(item.name);
-
-       // period.setText(item.name);
-        return item;
-    }
 }
