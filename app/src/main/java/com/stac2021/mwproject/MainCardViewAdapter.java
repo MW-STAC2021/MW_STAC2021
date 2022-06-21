@@ -79,7 +79,7 @@ public class MainCardViewAdapter extends BaseAdapter {
 
             checked.setChecked(checking.get(i));
             //서버 url로 이미지 불러오기
-            img_path = "http://3.216.173.66:3000/infoThumbnail/" + img.get(i);
+            img_path = "https://mom.emirim.kr/infoThumbnail/" + img.get(i);
             Glide.with(view.getContext()).load(img_path).into(viewImage);
 
             viewType.setText(infoType.get(i) + "정보");
